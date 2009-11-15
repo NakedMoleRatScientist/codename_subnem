@@ -1,0 +1,22 @@
+<html>
+  <head>
+   <title>Hello World</title>
+   <script type="text/javascript" src="vendor/cake.js"></script>
+   <script language="JavaScript" type="text/javascript">
+   window.onload = function() {
+     GameCanvas = new Canvas(document.body, 800, 600);
+     var hello = new ElementNode(E('h2', 'Hello World'),
+     {
+       fontFamily: 'Arial, Sans-serif',
+       noScaling : true,
+       color : 'black'
+     });
+     hello.align = 'center';
+     hello.valign = 'center';
+     GameCanvas.append(hello);
+   }
+   </script>
+  </head>
+  <body>
+  </body>
+</html>
