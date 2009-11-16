@@ -2,21 +2,12 @@
   <head>
    <title>Hello World</title>
    <script type="text/javascript" src="vendor/cake.js"></script>
+   <script type="text/javascript" src="js/objects/player_ship.js"></script>
+   <script type="text/javascript" src="js/subnem_engine.js"></script>
    <script language="JavaScript" type="text/javascript">
-   window.onload = function() {
-     var c = E.canvas(500, 500);
-     var canvas = new Canvas(c);
-     canvas.clear = new Canvas(c);
-     var rect = new Rectangle(100,100);
-     rect.x = 250;
-     rect.y = 250;
-     rect.fill = 'green';
-     rect.addFrameListener(function(t) {
-       this.rotation = ((t / 3000) % 1) * Math.PI * 2;
-     });
-     canvas.append(rect);
-     document.body.appendChild(c);
-   }
+     window.onload = function() {
+       initializeSubnemEngine();
+     }
    </script>
   </head>
   <body>
