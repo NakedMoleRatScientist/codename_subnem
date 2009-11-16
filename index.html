@@ -4,18 +4,18 @@
    <script type="text/javascript" src="vendor/cake.js"></script>
    <script language="JavaScript" type="text/javascript">
    window.onload = function() {
-     GameCanvas = new Canvas(document.body, 800, 600);
-     var hello = new ElementNode(E('h2', 'Hello World'),
-     {
-       fontFamily: 'Arial, Sans-serif',
-       noScaling : true,
-       color : 'black'
+     var c = E.canvas(500, 500);
+     var canvas = new Canvas(c);
+     canvas.clear = new Canvas(c);
+     var rect = new Rectangle(100,100);
+     rect.x = 250;
+     rect.y = 250;
+     rect.fill = 'green';
+     rect.addFrameListener(function(t) {
+       this.rotation = ((t / 3000) % 1) * Math.PI * 2;
      });
-     hello.align = 'center';
-     hello.valign = 'center';
-     hello.x = 100;
-     hello.y = 100;
-     GameCanvas.append(hello);
+     canvas.append(rect);
+     document.body.appendChild(c);
    }
    </script>
   </head>
