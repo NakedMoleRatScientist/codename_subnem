@@ -12,5 +12,6 @@ function initializeSubnemEngine(){
      this.rotation = ((t / 3000) % 1) * Math.PI * 2 ;
    });
    canvas.append(rect);                 // append the Rectangle to the Canvas
+   canvas.append(player_ship);
    document.body.appendChild(c);        // append the canvas element to document body
 }
