@@ -42,3 +42,6 @@ clone_three.addFrameListener(function(t)
 {
     move(this,3);
 });
+layer_one = new Array();
+layer_two = new Array();
+layer_three = new Array();
