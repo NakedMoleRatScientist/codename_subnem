@@ -42,7 +42,7 @@ clone_three.addFrameListener(function(t)
 {
     move(this,3);
 });
-function star(x , y, size, color)
+function Star(x , y, size, color)
 {
     this.x = x
     this.y = y
@@ -50,6 +50,9 @@ function star(x , y, size, color)
     this.color = color
 }
 
-layer_one = new Array();
-layer_two = new Array();
-layer_three = new Array();
+function Starfield()
+{
+  this.layer_one = new Array();
+  this.layer_two = new Array();
+  this.layer_three = new Array();
+}
