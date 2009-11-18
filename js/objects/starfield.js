@@ -50,9 +50,18 @@ function Star(x , y, size, color)
     this.color = color
 }
 
+function random(n)
+{
+  return (Math.floor(Math.random() * n + 1));
+}
+
 function Starfield()
 {
-  this.layer_one = new Array();
-  this.layer_two = new Array();
-  this.layer_three = new Array();
+    this.layer_one = new Array();
+    this.layer_two = new Array();
+    this.layer_three = new Array();
+    function random_generate()
+    {
+	star = new ImageNode(Math.random(),Math.random,random(3),"fffaf");
+    }
 }
