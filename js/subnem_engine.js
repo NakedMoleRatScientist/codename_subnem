@@ -6,6 +6,9 @@ function initializeSubnemEngine(){
    canvas.append(starfield_one);
    canvas.append(starfield_two);
    canvas.append(starfield_three);
+   canvas.append(clone_one);
+   canvas.append(clone_two);
+   canvas.append(clone_three);
    canvas.append(player_ship);
    document.body.appendChild(c);        // append the canvas element to document body
 }
