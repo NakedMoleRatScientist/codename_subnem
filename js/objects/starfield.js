@@ -14,6 +14,7 @@ function move(object, speed)
 {
     object.x += speed;
     if (object.x > 500)
+    {
       object.x = -500;
     }
 }
