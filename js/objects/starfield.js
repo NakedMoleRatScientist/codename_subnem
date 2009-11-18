@@ -65,3 +65,6 @@ function Starfield()
 	star = new ImageNode(Math.random(),Math.random,random(3),"fffaf");
     }
 }
+
+star = new Starfield();
+star.generate();
