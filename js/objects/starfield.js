@@ -42,6 +42,14 @@ clone_three.addFrameListener(function(t)
 {
     move(this,3);
 });
+function star(x , y, size, color)
+{
+    this.x = x
+    this.y = y
+    this.size = size
+    this.color = color
+}
+
 layer_one = new Array();
 layer_two = new Array();
 layer_three = new Array();
