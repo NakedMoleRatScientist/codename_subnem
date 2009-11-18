@@ -10,27 +10,34 @@ clone_two.x = -500
 starfield_three = new ImageNode(_starfield_image_three);
 clone_three = new ImageNode(_starfield_image_three);
 clone_three.x = -500
+function move(object, speed)
+{
+    object.x += speed;
+    if (object.x > 500)
+      object.x = -500;
+    }
+}
 starfield_one.addFrameListener(function(t)
 {
-    this.x += 1;
+    move(this,1);
 });
 starfield_two.addFrameListener(function(t)
 {
-    this.x += 2;
+    move(this,2);
 });
 starfield_three.addFrameListener(function(t) 
 {
-    this.x += 3;
+    move(this,3);
 });
 clone_one.addFrameListener(function(t)
 {
-    this.x += 1;
+    move(this,1);
 });
 clone_two.addFrameListener(function(t)
 {
-    this.x += 2;
+    move(this,2);
 });
 clone_three.addFrameListener(function(t)
 {
-    this.x += 3;
+    move(this,3);
 });
