@@ -7,3 +7,6 @@ player_ship = new ImageNode(_player_ship_image);
 // Make the png rotate
 player_ship.addFrameListener(function(t) {
 });
+function Player()
+{
+}
