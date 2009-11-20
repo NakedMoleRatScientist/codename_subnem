@@ -84,7 +84,7 @@ function Starfield() {
 	layer = new Array();
 	for (i = 0; i < 50; i++)
 	{
-	  layer.push(new Star(Math.random(),Math.Random(),random(3),random_color()));
+	  layer.push(new Star(Math.random(),Math.random(),random(3),random_color()));
 	}
 	return layer;
     }
