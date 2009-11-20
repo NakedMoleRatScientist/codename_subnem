@@ -67,12 +67,14 @@ function Starfield() {
           this.layer_one.push(new Star(Math.random(),Math.random(),random(3),"fffaf"));
         }
     }
-    this.random_layer = function(layer)
+    this.random_layer = function()
     {
+	layer = new Array();
 	for (i = 0; i < 50; i++)
 	{
-	  layer.push(new Star(Math.random(),Math.Random(),random(3),"ffaf"));
+	  layer.push(new Star(Math.random(),Math.Random(),random(3),"fffaf"));
 	}
+	return layer;
     }
 }
 starfield = new Starfield();
