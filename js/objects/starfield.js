@@ -64,9 +64,9 @@ function Starfield() {
 	choice = random(3);
 	switch (choice)
 	{
-	    case 1; color = "ffffff"; break;
-	    case 2; color = "00ffff"; break;
-	    case 3; color = "ffff00"; break;
+	    case 1: color = "ffffff"; break;
+	    case 2: color = "00ffff"; break;
+	    case 3: color = "ffff00"; break;
 	}
 	return color;
     }
