@@ -59,13 +59,23 @@ function Starfield() {
     this.layer_one = new Array();
     this.layer_two = new Array();
     this.layer_three = new Array();
+    this.random_colors = function()
+    {
+	choice = random(3);
+	switch (choice)
+	{
+	    case 1; color = "ffffff"; break;
+	    case 2; color = "00ffff"; break;
+	    case 3; color = "ffff00"; break;
+	}
+	return color;
+
+    }
     this.random_generate = function()
     {
-	
-        for (i = 0; i < 50; i++)
-        {
-          this.layer_one.push(new Star(Math.random(),Math.random(),random(3),"fffaf"));
-        }
+	this.layer_one = random_layer();
+	this.layer_two = random_layer();
+	this.layer_three = random_layer();
     }
     this.random_layer = function()
     {
