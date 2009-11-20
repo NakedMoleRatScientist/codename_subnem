@@ -74,12 +74,12 @@ function Starfield(x,y) {
     }
     return color;
   }
-  this.addFrameListener = function(star , speed)
+  this.addFrameListener = function(star,  speed)
   {
     star.c.addFrameListener(function(t)
     {
       move(this,speed);
-    }
+    });
   }
   this.random_generate = function()
   {
