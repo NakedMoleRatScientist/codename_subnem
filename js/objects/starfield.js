@@ -84,8 +84,11 @@ function Starfield(x,y) {
   this.random_generate = function()
   {
     this.layer_one = this.random_layer();
+    this.layer_one = this.addFrameListenerToLayer(this.layer_one,1);
     this.layer_two = this.random_layer();
+    this.layer_one = this.addFrameListenerToLayer(this.layer_two,2);
     this.layer_three = this.random_layer();
+    this.layer_three = this.addFrameListenerToLayer(this.layer_three,3);
   }
   this.random_layer = function()
   {
