@@ -75,9 +75,9 @@ function Starfield() {
     }
     this.random_generate = function()
     {
-	this.layer_one = random_layer();
-	this.layer_two = random_layer();
-	this.layer_three = random_layer();
+	this.layer_one = this.random_layer();
+	this.layer_two = this.random_layer();
+	this.layer_three = this.random_layer();
     }
     this.random_layer = function()
     {
