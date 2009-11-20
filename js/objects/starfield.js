@@ -99,6 +99,14 @@ function Starfield(x,y) {
     }
     return layer;
   }
+  this.addFrameListenerToLayer = function(layer, speed)
+  {
+    for (i = 0; i < layer.length; i++)
+    {
+      this.addFrameListener(layer[i],speed);
+    }
+    return layer;
+  }
 }
 
 starfield = new Starfield(500,500);
