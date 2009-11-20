@@ -76,7 +76,7 @@ function Starfield(x,y) {
   }
   this.addFrameListener = function(star , speed)
   {
-    star.addFrameListener(function(t)
+    star.c.addFrameListener(function(t)
     {
       move(this,speed);
     }
