@@ -74,6 +74,13 @@ function Starfield(x,y) {
     }
     return color;
   }
+  this.addFrameListener = function(star , speed)
+  {
+    star.addFrameListener(function(t)
+    {
+      move(this,speed);
+    }
+  }
   this.random_generate = function()
   {
     this.layer_one = this.random_layer();
