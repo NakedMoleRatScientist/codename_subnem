@@ -55,16 +55,14 @@ function random(n)
   return (Math.floor(Math.random() * n + 1));
 }
 
-function Starfield()
-{
+function Starfield() {
     this.layer_one = new Array();
     this.layer_two = new Array();
     this.layer_three = new Array();
-    function random_generate()
+    this.random_generate = function()
     {
-	star = new ImageNode(Math.random(),Math.random,random(3),"fffaf");
+	star = new  Star(Math.random(),Math.random,random(3),"fffaf");
     }
 }
-
-star = new Starfield();
-star.generate();
+starfield = new Starfield();
+starfield.random_generate();
