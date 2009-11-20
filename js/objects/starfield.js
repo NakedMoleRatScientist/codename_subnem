@@ -44,10 +44,13 @@ clone_three.addFrameListener(function(t)
 });
 function Star(x , y, size, color)
 {
-    this.x = x
-    this.y = y
-    this.size = size
-    this.color = color
+    this.c = new Circle(size,
+    {
+	fill: color
+    }
+    );
+    this.c.x = x
+    this.c.y = y
 }
 
 function random(n)
