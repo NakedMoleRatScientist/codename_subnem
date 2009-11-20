@@ -92,7 +92,7 @@ function Starfield(x,y) {
     layer = new Array();
     for (i = 0; i < 50; i++)
     {
-      width = this.width * Math.Random();
+      width = this.width * Math.random();
       height = this.height * Math.random();
       size = this.size * random(3);
       layer.push(new Star(width,height,size,this.random_colors()));
