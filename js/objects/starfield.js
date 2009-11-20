@@ -61,10 +61,18 @@ function Starfield() {
     this.layer_three = new Array();
     this.random_generate = function()
     {
-       for (i = 0; i < 50; i++)
-       {
-         this.layer_one.push(new Star(Math.random(),Math.random,random(3),"fffaf"));
-       }
+	
+        for (i = 0; i < 50; i++)
+        {
+          this.layer_one.push(new Star(Math.random(),Math.random(),random(3),"fffaf"));
+        }
+    }
+    this.random_layer = function(layer)
+    {
+	for (i = 0; i < 50; i++)
+	{
+	  layer.push(new Star(Math.random(),Math.Random(),random(3),"ffaf"));
+	}
     }
 }
 starfield = new Starfield();
