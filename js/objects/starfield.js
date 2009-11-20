@@ -58,7 +58,9 @@ function random(n)
   return (Math.floor(Math.random() * n + 1));
 }
 
-function Starfield() {
+function Starfield(x,y) {
+    this.height = y / 10
+    this.width = x / 10
     this.layer_one = new Array();
     this.layer_two = new Array();
     this.layer_three = new Array();
@@ -89,5 +91,5 @@ function Starfield() {
 	return layer;
     }
 }
-starfield = new Starfield();
+starfield = new Starfield(500,500);
 starfield.random_generate();
