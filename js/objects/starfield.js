@@ -10,47 +10,45 @@ clone_two.x = -500
 starfield_three = new ImageNode(_starfield_image_three);
 clone_three = new ImageNode(_starfield_image_three);
 clone_three.x = -500
+
 function move(object, speed)
 {
-    object.x += speed;
-    if (object.x > 500)
-    {
-      object.x = -500;
-    }
+  object.x += speed;
+  if (object.x > 500)
+  {
+    object.x = -500;
+  }
 }
 starfield_one.addFrameListener(function(t)
 {
-    move(this,1);
+  move(this,1);
 });
 starfield_two.addFrameListener(function(t)
 {
-    move(this,2);
+  move(this,2);
 });
 starfield_three.addFrameListener(function(t) 
 {
-    move(this,3);
+  move(this,3);
 });
 clone_one.addFrameListener(function(t)
 {
-    move(this,1);
+  move(this,1);
 });
 clone_two.addFrameListener(function(t)
 {
-    move(this,2);
+  move(this,2);
 });
 clone_three.addFrameListener(function(t)
 {
-    move(this,3);
+  move(this,3);
 });
 function Star(x , y, size, color)
 {
-    this.c = new Circle(size,
-    {
-	fill: color
-    }
-    );
-    this.c.x = x
-    this.c.y = y
+  this.c = new Circle(size,
+    { fill: color });
+  this.c.x = x
+  this.c.y = y
 }
 
 function random(n)
@@ -59,37 +57,38 @@ function random(n)
 }
 
 function Starfield(x,y) {
-    this.height = y / 10
-    this.width = x / 10
-    this.layer_one = new Array();
-    this.layer_two = new Array();
-    this.layer_three = new Array();
-    this.random_colors = function()
+  this.height = y / 10
+  this.width = x / 10
+  this.layer_one = new Array();
+  this.layer_two = new Array();
+  this.layer_three = new Array();
+  this.random_colors = function()
+  {
+    choice = random(3);
+    switch (choice)
     {
-	choice = random(3);
-	switch (choice)
-	{
 	    case 1: color = [255,255,255,1]; break;
 	    case 2: color = [0,255,255,1]; break;
 	    case 3: color = [255,255,0,1]; break;
-	}
-	return color;
     }
-    this.random_generate = function()
+    return color;
+  }
+  this.random_generate = function()
+  {
+    this.layer_one = this.random_layer();
+    this.layer_two = this.random_layer();
+    this.layer_three = this.random_layer();
+  }
+  this.random_layer = function()
+  {
+    layer = new Array();
+    for (i = 0; i < 50; i++)
     {
-	this.layer_one = this.random_layer();
-	this.layer_two = this.random_layer();
-	this.layer_three = this.random_layer();
+      layer.push(new Star(Math.random(),Math.random(),random(3),this.random_colors()));
     }
-    this.random_layer = function()
-    {
-	layer = new Array();
-	for (i = 0; i < 50; i++)
-	{
-	  layer.push(new Star(Math.random(),Math.random(),random(3),this.random_colors()));
-	}
-	return layer;
-    }
+    return layer;
+  }
 }
+
 starfield = new Starfield(500,500);
 starfield.random_generate();
