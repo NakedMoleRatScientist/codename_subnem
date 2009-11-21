@@ -24,9 +24,6 @@ function Starfield(x,y) {
   this.height = y;
   this.width = x;
   this.size = this.height * this.width / 400000;
-  this.layer_one = new Array();
-  this.layer_two = new Array();
-  this.layer_three = new Array();
   this.layers = new Array();
   this.random_colors = function()
   {
