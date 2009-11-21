@@ -6,30 +6,7 @@ function move(object, speed)
     object.x = -500;
   }
 }
-starfield_one.addFrameListener(function(t)
-{
-  move(this,1);
-});
-starfield_two.addFrameListener(function(t)
-{
-  move(this,2);
-});
-starfield_three.addFrameListener(function(t) 
-{
-  move(this,3);
-});
-clone_one.addFrameListener(function(t)
-{
-  move(this,1);
-});
-clone_two.addFrameListener(function(t)
-{
-  move(this,2);
-});
-clone_three.addFrameListener(function(t)
-{
-  move(this,3);
-});
+
 function Star(x , y, size, color)
 {
   this.c = new Circle(size,
