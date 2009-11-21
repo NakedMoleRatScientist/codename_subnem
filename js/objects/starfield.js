@@ -49,20 +49,20 @@ function Starfield(x,y) {
     counter = 1;
     for (i = 0; i < 3; i++)
     {
-      layer_one = this.random_layer();
-      layer_one = this.addFrameListenerToLayer(layer_one,counter);
-      layer_two = this.random_layer();
-      layer_two = this.addFrameListenerToLayer(layer_two,counter);
-      layer_two.x = -500
-      this.layers.push(layer_one);
-      this.layers.push(layer_two);
+      this.layers.push(this.new_layers(counter));
       counter ++;
     }
+  }
+  this.new_layers = function(speed)
+  {
+    layer = this.random_layer();
+    layer = this.addFrameListenerToLayer(layer,speed);
+    return layer;
   }
   this.random_layer = function()
   {
     layer = new Array();
-    for (i = 0; i < 200; i++)
+    for (i = 0; i < 50; i++)
     {
       width  = this.width * Math.random();
       height = this.height * Math.random();
