@@ -1,3 +1,16 @@
+/*Known weirdness and problems:
+
+The loop that is contained in function random_generate of the Starfield class cannot use "i" for some reason. So the name "time" was instead used.  
+This is because i would automatically terminate after the first passing of the loop for inexplict reason.
+Perhaps this is caused by the overuse of "i"?
+In any case someone more knowledgable than me should investigate it more closely. Also, if you can't replacate this bug, feel free to delete it. 
+              --Kiba, 11/21/09
+
+
+*/
+
+
+
 function move(object, speed)
 {
   object.x += speed;
@@ -47,24 +60,35 @@ function Starfield(x,y) {
   this.random_generate = function()
   {
     counter = 1;
-    for (i = 0; i < 3; i++)
+    for (time = 0; time < 3; time++)
     {
-      this.layers.push(this.new_layers(counter));
+      layer_one = this.new_layers(counter);
+      layer_two = this.new_layers(counter,-500);
+      this.layers.push(layer_one);
+      this.layers.push(layer_two);
       counter ++;
     }
   }
-  this.new_layers = function(speed)
+  this.new_layers = function(speed,x)
   {
-    layer = this.random_layer();
+    if (x == null)
+    {
+      x = 0;
+    }
+    layer = this.random_layer(x);
     layer = this.addFrameListenerToLayer(layer,speed);
     return layer;
   }
-  this.random_layer = function()
+  this.random_layer = function(offset)
   {
+    if (offset == null)
+    {
+      offset = 0;
+    }
     layer = new Array();
     for (i = 0; i < 50; i++)
     {
-      width  = this.width * Math.random();
+      width  = this.width * Math.random() + offset;
       height = this.height * Math.random();
       size   = this.size * random(3);
       layer.push(new Star(width,height,size,this.random_colors()));
