@@ -27,6 +27,7 @@ function Starfield(x,y) {
   this.layer_one = new Array();
   this.layer_two = new Array();
   this.layer_three = new Array();
+  this.layers = new Array();
   this.random_colors = function()
   {
     choice = random(4);
@@ -48,15 +49,18 @@ function Starfield(x,y) {
   }
   this.random_generate = function()
   {
-    this.layer_one   = this.random_layer();
-    this.layer_one   = this.addFrameListenerToLayer(this.layer_one,1);
-    this.clone_one   = this.layer_one.clone();
-    this.layer_two   = this.random_layer();
-    this.layer_two   = this.addFrameListenerToLayer(this.layer_two,2);
-    this.clone_two   = this.layer_two.clone();
-    this.layer_three = this.random_layer();
-    this.layer_three = this.addFrameListenerToLayer(this.layer_three,3);
-    this.clone_three = this.layer_three.clone();
+    counter = 0;
+    for (i = 0; i < 6; i++)
+    {
+      layer_one = this.random_layer();
+      layer_one = this.addFrameListenerToLayer(layer_one,counter);
+      layer_two = this.random_layer();
+      layer_two = this.addFrameListenerToLayer(layer_two,counter);
+      layer_two.x = -500
+      layers.push(layer_one);
+      layers.push(layer_two);
+      counter += 1;
+    }
   }
   this.random_layer = function()
   {
