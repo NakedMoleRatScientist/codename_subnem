@@ -50,10 +50,13 @@ function Starfield(x,y) {
   {
     this.layer_one   = this.random_layer();
     this.layer_one   = this.addFrameListenerToLayer(this.layer_one,1);
+    this.clone_one   = this.layer_one.clone();
     this.layer_two   = this.random_layer();
-    this.layer_one   = this.addFrameListenerToLayer(this.layer_two,2);
+    this.layer_two   = this.addFrameListenerToLayer(this.layer_two,2);
+    this.clone_two   = this.layer_two.clone();
     this.layer_three = this.random_layer();
     this.layer_three = this.addFrameListenerToLayer(this.layer_three,3);
+    this.clone_three = this.layer_three.clone();
   }
   this.random_layer = function()
   {
