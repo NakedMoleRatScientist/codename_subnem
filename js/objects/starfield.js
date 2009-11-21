@@ -82,11 +82,14 @@ function Starfield(x,y) {
     }
     return layer;
   }
-  this.appendLayerToCanvas = function(layer,canvas)
+  this.appendLayersToCanvas = function(canvas)
   {
-    for (i = 0; i < layer.length; i++)
+    for (i = 0; i < this.layers.length; i++)
     {
-      canvas.appendChild(layer[i].c);
+      for(l = 0; l < this.layers[i].length; l++)
+      {
+        canvas.appendChild(this.layers[i][l].c);
+      }
     }
   }
 }
