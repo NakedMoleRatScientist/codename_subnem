@@ -114,7 +114,7 @@ function Starfield(x,y) {
   {
     for (i = 0; i < layer.length; i++)
     {
-      canvas.append(layer[i]);
+      canvas.appendChild(layer[i].c);
     }
   }
 }
