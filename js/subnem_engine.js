@@ -3,9 +3,7 @@ function initializeSubnemEngine(){
   var canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
   canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
   canvas.clear = true;                 // don't show previous frame
-  starfield.appendLayerToCanvas(this.starfield.layer_one,canvas);
-  starfield.appendLayerToCanvas(this.starfield.layer_two,canvas);
-  starfield.appendLayerToCanvas(this.starfield.layer_three,canvas);
+  starfield.appendLayersToCanvas(canvas);
   canvas.append(player_ship);
   document.body.appendChild(c);        // append the canvas element to document body
 }
