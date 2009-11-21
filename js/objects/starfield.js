@@ -57,9 +57,9 @@ function random(n)
 }
 
 function Starfield(x,y) {
-  this.height = y / 10;
-  this.width = x / 10;
-  this.size = this.height * this.width / 100;
+  this.height = y;
+  this.width = x;
+  this.size = this.height * this.width / 400000;
   this.layer_one = new Array();
   this.layer_two = new Array();
   this.layer_three = new Array();
@@ -93,7 +93,7 @@ function Starfield(x,y) {
   this.random_layer = function()
   {
     layer = new Array();
-    for (i = 0; i < 50; i++)
+    for (i = 0; i < 500; i++)
     {
       width = this.width * Math.random();
       height = this.height * Math.random();
