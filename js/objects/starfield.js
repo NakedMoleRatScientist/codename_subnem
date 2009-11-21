@@ -110,6 +110,13 @@ function Starfield(x,y) {
     }
     return layer;
   }
+  this.appendLayerToCanvas = function(layer,canvas)
+  {
+    for (i = 0; i < layer.length; i++)
+    {
+      canvas.append(layer[i]);
+    }
+  }
 }
 
 starfield = new Starfield(500,500);
