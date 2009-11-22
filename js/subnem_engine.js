@@ -4,6 +4,6 @@ function initializeSubnemEngine(){
   canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
   canvas.clear = true;                 // don't show previous frame
   starfield.appendLayersToCanvas(canvas);
-  canvas.append(player_ship);
+  canvas.append(player.image);
   document.body.appendChild(c);        // append the canvas element to document body
 }
