@@ -4,7 +4,8 @@
 
 function Player()
 {
-    this.image = Object.loadImage('assets/game/fighter_x1/main.png');
+    this.image_file = Object.loadImage("assets/game/fighter_x1/main.png");
+    this.image = new ImageNode(this.image_file);
 }
 
 player = new Player();
