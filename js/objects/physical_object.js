@@ -1,4 +1,4 @@
-function PhysicalObject(mass , speeed)
+function PhysicalObject(mass , velocity)
 {
   this.mass = mass;
   this.velocity = velocity;
