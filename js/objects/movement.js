@@ -4,6 +4,8 @@ function Movement(physical_object,image)
     this.image = image
     move = function()
     {
-      this.image += this.physical_object.convert_to_cartesian();
+      location += this.physical_object.convert_to_cartesian();
+      this.image.x += location.x;
+      this.image.y += location.y;
     }
 }
