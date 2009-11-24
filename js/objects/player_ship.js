@@ -8,6 +8,13 @@ function Player()
     this.image = new ImageNode(this.image_file);
     this.physical_object = new PhysicalObject(100,30);
     this.movement = new Movement(this.physical_object,this.image);
+    this.addFrameListener = function()
+    {
+      this.image_file.addFrameListener(function(t)
+      {
+        this.movement.move();
+      }
+    }
 }
 
 player = new Player();
