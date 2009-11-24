@@ -18,3 +18,4 @@ function Player()
 }
 
 player = new Player();
+player.addFrameListener();
