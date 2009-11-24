@@ -6,6 +6,7 @@ function Player()
 {
     this.image_file = Object.loadImage("assets/game/fighter_x1/main.png");
     this.image = new ImageNode(this.image_file);
+    this.physical_object = new PhysicalObject(100,30);
 }
 
 player = new Player();
