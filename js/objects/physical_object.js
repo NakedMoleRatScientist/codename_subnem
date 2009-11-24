@@ -7,8 +7,8 @@ function PhysicalObject(mass , velocity)
   //Convert polar coordinates into retangular ones
   this.convert_to_cartesian = function()
   {
-    x = this.velocity * Math.cosine(this.direction);
-    y = this.velocity * Math.sine(this.direction);
+    x = this.velocity * Math.cos(this.direction);
+    y = this.velocity * Math.sin(this.direction);
     return {x: x, y: y}
   }
   calculate_inertia = function()
