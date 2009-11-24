@@ -13,7 +13,7 @@ function Player()
       this.image_file.addFrameListener(function(t)
       {
         this.movement.move();
-      }
+      });
     }
 }
 
