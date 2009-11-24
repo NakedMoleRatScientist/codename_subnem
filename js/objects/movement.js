@@ -2,7 +2,7 @@ function Movement(physical_object,image)
 {
     this.physical_object = physical_object;
     this.image = image
-    move = function()
+    this.move = function()
     {
       location += this.physical_object.convert_to_cartesian();
       this.image.x += location.x;
