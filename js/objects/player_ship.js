@@ -13,11 +13,11 @@ function Player()
       location = this.physical_object.convert_to_cartesian();
       this.image_file.addFrameListener(function(t)
       {
-        this.x += location.x;
-        this.y += location.y;
+        //this.x += location.x;
+        this.x += 1;
+        this.y += 1;
       });
     }
 }
 
 player = new Player();
-player.addFrameListener();
