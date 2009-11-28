@@ -6,18 +6,17 @@ function Player()
 {
     this.image_file = Object.loadImage("assets/game/fighter_x1/main.png");
     this.image = new ImageNode(this.image_file);
-    this.physical_object = new PhysicalObject(100,30);
+    this.physical_object = new PhysicalObject();
     this.movement = new Movement(this.physical_object,this.image);
-    this.addFrameListener = function()
+    this.act = function()
     {
-      location = this.physical_object.convert_to_cartesian();
-      this.image_file.addFrameListener(function(t)
-      {
-        //this.x += location.x;
-        this.x += 1;
-        this.y += 1;
-      });
+	this.image.addFrameListener(function(t) 
+        {
+          this.x += 5;
+	  this.y += 5;
+        });
     }
 }
 
 player = new Player();
+player.act();
