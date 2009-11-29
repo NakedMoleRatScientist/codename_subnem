@@ -11,7 +11,7 @@ function PhysicalObject(mass , velocity)
     y = this.velocity * Math.sin(this.direction);
     return {x: x, y: y}
   }
-  calculate_inertia = function()
+  this.calculate_inertia = function()
   {
     return this.mass * this.velocity
   }
