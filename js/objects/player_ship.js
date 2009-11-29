@@ -9,8 +9,9 @@ function Player()
     this.physical_object = new PhysicalObject(20,100);
     this.image.addFrameListener(function(t) 
     {
-      this.x += 5;
-      this.y += 5;
+      location = this.physical_object.convert_to_cartesian();
+      this.x += location.x;
+      this.y += location.y;
     });
 }
 
