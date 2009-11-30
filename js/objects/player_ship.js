@@ -17,6 +17,7 @@ function Player()
       this.physical_object.accelerate_forward();
       console.log(this.physical_object.velocity);
     }
+    location = this.physical_object.convert_to_cartesian();
   }
   this.image.addFrameListener(kb_move);
 }
