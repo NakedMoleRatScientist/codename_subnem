@@ -19,4 +19,8 @@ function PhysicalObject(mass, velocity)
   {
     this.direction -= 10;
   }
+  this.accelerate_forward = function()
+  {
+    this.velocity += 10;
+  }
 }
