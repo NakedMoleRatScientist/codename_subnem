@@ -7,9 +7,10 @@ function Player()
     this.image_file = Object.loadImage("assets/game/fighter_x1/main.png");
     this.image = new ImageNode(this.image_file);
     this.physical_object = new PhysicalObject(20,100);
+    this.image.physical_object = this.physical_object;
     this.image.addFrameListener(function(t) 
     {
-      location = this.physical_object.convert_to_cartesian();
+      var location = this.physical_object.convert_to_cartesian();
       this.x += location.x;
       this.y += location.y;
     });
