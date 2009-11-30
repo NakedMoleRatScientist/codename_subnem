@@ -18,6 +18,8 @@ function Player()
       console.log(this.physical_object.velocity);
     }
     var location = this.physical_object.convert_to_cartesian();
+    this.x += location.x;
+    this.y += location.y;
   }
   this.image.addFrameListener(kb_move);
 }
