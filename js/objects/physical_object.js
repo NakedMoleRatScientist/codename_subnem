@@ -15,4 +15,8 @@ function PhysicalObject(mass, velocity)
   {
     return this.mass * this.velocity
   }
+  this.turn_left = function()
+  {
+    this.direction -= 10;
+  }
 }
