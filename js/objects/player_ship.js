@@ -10,7 +10,12 @@ function Player()
   this.image.physical_object = this.physical_object;
   var kb_move = function(t, dt){
     if(this.root.keys.left){
+      console.log("wah!");
       this.physical_object.turn_left();
+    }
+    if(this.root.keys.up){
+      this.physical_object.accelerate_forward();
+      console.log(this.physical_object.velocity);
     }
   }
   this.image.addFrameListener(kb_move);
