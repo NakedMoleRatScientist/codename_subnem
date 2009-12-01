@@ -8,8 +8,6 @@ In any case someone more knowledgable than me should investigate it more closely
 
 
 */
-
-
 Starfield = Klass(CanvasNode, {
   x: 0,
   y: 0,
