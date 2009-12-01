@@ -9,8 +9,6 @@ In any case someone more knowledgable than me should investigate it more closely
 
 */
 
-
-
 function move(object, speed)
 {
   object.x += speed;
@@ -59,6 +57,7 @@ function Starfield(x,y) {
   }
   this.random_generate = function()
   {
+    console.log("in random_generate");
     counter = 1;
     for (time = 0; time < 3; time++)
     {
@@ -115,5 +114,6 @@ function Starfield(x,y) {
   }
 }
 
-starfield = new Starfield(500,500);
+var starfield = new Starfield(500,500);
 starfield.random_generate();
+console.log("created starfield");
