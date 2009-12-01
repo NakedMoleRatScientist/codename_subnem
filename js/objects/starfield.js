@@ -21,10 +21,6 @@ Starfield = Klass(CanvasNode, {
     this.layers = new Array();
     this.random_generate();
     this.appendLayersToCanvas();
-    var test_circle = new Circle(20, [255, 255, 255, 1]);
-    test_circle.x = 100;
-    test_circle.y = 100;
-    this.append(test_circle);
     logger.info("drew starfield");
   },
   random: function(n){
