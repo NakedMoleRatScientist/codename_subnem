@@ -116,4 +116,4 @@ function Starfield(x,y) {
 
 var starfield = new Starfield(500,500);
 starfield.random_generate();
-console.log("created starfield");
+logger.info("created starfield");
