@@ -8,7 +8,6 @@ Hud = Klass(CanvasNode, {
   rotation_gauge_x: settings.width - 80,
   rotation_gauge_y: 20,
   rotation_gauge: null,
-  scene: null,
   initialize: function(){
     CanvasNode.initialize.call(this);
     this.draw_velocity_gauge();
@@ -27,5 +26,3 @@ Hud = Klass(CanvasNode, {
     this.append(this.rotation_gauge);
   }
 });
-
-var hud = new Hud();

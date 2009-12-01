@@ -27,8 +27,7 @@ function initializeSubnemEngine(){
 
   // Add the starfields
   var starfield = new Starfield(settings.width, settings.height);
-  starfield.random_generate();
-  starfield.appendLayersToCanvas(canvas);
+  canvas.append(starfield);
 
   // Add the player
   var player = new Player();
