@@ -6,16 +6,18 @@ function PhysicalObject(mass, velocity)
   this.angle = 0;
   this.x = 0;
   this.y = 0;
-  this.turn_step = 1;
+  this.turn_step = 2;
   this.accel_step = 0.01;
 
   //Convert polar coordinates into retangular ones
   this.rotate_to = function(angle){
+    angle = (360 + angle) % 360;
     this.angle = (angle / 180) * Math.PI;
   }
 
   this.angle_in_degrees = function(){
-    return (this.angle * 180) / Math.PI;
+    var ang = (360 + this.angle) % 360;
+    return (ang * 180) / Math.PI;
   }
 
   this.convert_to_cartesian = function()

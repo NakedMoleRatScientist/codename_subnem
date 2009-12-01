@@ -1,7 +1,7 @@
 function initializeSubnemEngine(){
   logger.info("initializing subnem");
 
-  var c = E.canvas(500, 500);          // create a new canvas element
+  var c = E.canvas(settings.width, settings.height);          // create a new canvas element
   var canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
   logger.info("successfully created canvas");
 
@@ -21,7 +21,17 @@ function initializeSubnemEngine(){
   );
   logger.info("successfully set up keybindings");
 
+  // Add the Hud
+  hud = new Hud;
+  canvas.append(hud);
+
+  // Add the starfields
+  var starfield = new Starfield(settings.width, settings.height);
+  starfield.random_generate();
   starfield.appendLayersToCanvas(canvas);
+
+  // Add the player
+  var player = new Player();
   canvas.append(player.image);
 
   document.body.appendChild(c);        // append the canvas element to document body

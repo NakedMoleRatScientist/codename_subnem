@@ -12,9 +12,9 @@ In any case someone more knowledgable than me should investigate it more closely
 function move(object, speed)
 {
   object.x += speed;
-  if (object.x > 500)
+  if (object.x > settings.width)
   {
-    object.x = -500;
+    object.x = -1 * settings.width;
   }
 }
 
@@ -62,7 +62,7 @@ function Starfield(x,y) {
     for (time = 0; time < 3; time++)
     {
       layer_one = this.new_layers(counter);
-      layer_two = this.new_layers(counter,-500);
+      layer_two = this.new_layers(counter,-1 * settings.width);
       this.layers.push(layer_one);
       this.layers.push(layer_two);
       counter ++;
@@ -87,10 +87,11 @@ function Starfield(x,y) {
     layer = new Array();
     for (i = 0; i < 50; i++)
     {
-      width  = this.width * Math.random() + offset;
-      height = this.height * Math.random();
+      x  = this.width * Math.random() + offset;
+      y = this.height * Math.random();
       size   = this.size * random(3);
-      layer.push(new Star(width,height,size,this.random_colors()));
+      star   = new Star(x, y, size, this.random_colors());
+      layer.push(star);
     }
     return layer;
   }
@@ -113,7 +114,3 @@ function Starfield(x,y) {
     }
   }
 }
-
-var starfield = new Starfield(500,500);
-starfield.random_generate();
-logger.info("created starfield");
