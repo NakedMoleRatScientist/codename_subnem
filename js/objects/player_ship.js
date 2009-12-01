@@ -6,7 +6,8 @@ function Player()
 {
   this.image_file = Object.loadImage("assets/game/fighter_x1/main.png");
   this.image = new ImageNode(this.image_file);
-  this.physical_object = new PhysicalObject(100,0);
+  this.image.y += 90;
+  this.physical_object = new PhysicalObject(200,0);
   this.image.physical_object = this.physical_object;
   var kb_move = function(t, dt){
     if(this.root.keys.left){
@@ -26,7 +27,7 @@ function Player()
     var location = this.physical_object.convert_to_cartesian();
     this.x += location.x;
     this.y += location.y;
-    this.rotation = location.angle;
+    this.rotation = location.angle - (Math.PI/2);
   }
   this.image.addFrameListener(kb_move);
 }
