@@ -23,12 +23,26 @@ PhysicalObject = Klass({
     return (ang * 180) / Math.PI;
   },
   convert_to_cartesian: function(){
+    this.calculate_acceleration();
+    this.calculate_velocity();
+    //logger.info(this.force_proxy);
     this.x += this.velocity * Math.cos(this.angle);
     this.y += this.velocity * Math.sin(this.angle);
     return {x: this.x, y: this.y, angle: this.angle};
   },
   calculate_inertia: function(){
     return this.mass * this.velocity;
+  },
+  calculate_acceleration: function(){
+    // F=ma, duh, so a=F/m
+    logger.info(this.force());
+    this.acceleration = this.force() / this.mass;
+  },
+  calculate_velocity: function(){
+    this.velocity = this.acceleration; // Total fake, fix later...just to get moving
+  },
+  force: function(){
+    return this.force_proxy.get_force();
   },
   turn_left: function(){
     this.rotate_by(-1 * this.turn_step);
