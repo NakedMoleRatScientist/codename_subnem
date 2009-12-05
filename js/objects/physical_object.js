@@ -10,7 +10,7 @@ PhysicalObject = Klass({
     this.angle = 0;
     this.x = 0;
     this.y = 0;
-    this.turn_step = 2;
+    this.turn_step = 4;
     this.accel_step = 0.01;
   },
   rotate_to: function(angle){
