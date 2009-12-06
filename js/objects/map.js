@@ -13,7 +13,7 @@ Map = Klass (
     this.x = width * 1000;
     this.y = height * 1000;
     this.objects = [];
-  }
+  },
   add: function(object)
   {
     this.objects.append(object)
