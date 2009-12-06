@@ -16,6 +16,14 @@ Map = Klass (
   },
   add: function(object)
   {
-    this.objects.append(object)
+    this.objects.append(object);
+  }
+  move: function(motion)
+  {
+    for (int n = 0; n < this.objects.length; n ++)
+    {
+      objects.x += motion.x;
+      objects.y += motion.y;
+    }
   }
 });
