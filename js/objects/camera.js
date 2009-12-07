@@ -8,11 +8,12 @@ Camera = Klass(
     this.width = width / 2;
     this.height = height / 2;
   }
-  return_motion: function()
+  position_check: function()
   {
-    motion_x = this.target.x - width;
-    motion_y = this.target.y - height;
-    return {x: motion_x, y: motion_y};
+    if (this.target.x == this.width)
+    {
+      logger.info("excat positions");
+    }
   }
   forward: function()
   {
