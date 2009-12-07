@@ -20,6 +20,9 @@ PlayerShip = Klass(CanvasNode, {
     //this.image.physical_object.force_proxy = this.thruster;
     this.image.ship = this;
     this.append(this.image);
+    this.addFrameListener(this.kb_move);
+    console.log(this.image);
+    console.log("Finished init for ship.");
     console.log(this);
     console.log(this.physics_proxy);
   },

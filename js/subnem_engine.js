@@ -2,38 +2,55 @@ function initializeSubnemEngine(){
   logger.info("initializing subnem");
 
   var c = E.canvas(settings.width, settings.height);          // create a new canvas element
-  var canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
+  canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
+  var overlay_c = E.canvas(settings.width, settings.height);          // create a new canvas element
+  overlay_canvas = new Canvas(overlay_c);          // create a CAKE [Canvas] for the element
   logger.info("successfully created canvas");
 
-  canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
+  //canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
   canvas.clear = true;                 // don't show previous frame
-  canvas.when("keydown", function (ev) {
+
+  main_scene = new Rectangle(settings.width, settings.height);
+  main_scene.fill = [0, 0, 0, 1];
+  //main_scene.addFrameListener(drawPhysicsWorld);
+  canvas.append(main_scene);
+
+  try{
+    physics_world = new PhysicsWorld;
+  }catch(err){
+  }
+
+  // Add the Hud
+  logger.info("setting up HUD");
+  hud = new Hud;
+  main_scene.append(hud);
+
+  main_scene.when("keydown", function (ev) {
       ev.preventDefault();
     }
   );
-  canvas.when("keypress", function (ev) {
+  main_scene.when("keypress", function (ev) {
       ev.preventDefault();
     }
   );
-  canvas.when("keyup", function (ev) {
+  main_scene.when("keyup", function (ev) {
+      logger.info("up");
       ev.preventDefault();
     }
   );
   logger.info("successfully set up keybindings");
 
-  // Add the Hud
-  hud = new Hud;
-  canvas.append(hud);
-
   // Add the starfields
-  var starfield = new Starfield(settings.width, settings.height);
-  canvas.append(starfield);
+  //var starfield = new Starfield(settings.width, settings.height);
+  //canvas.append(starfield);
 
   // Add the player
-  var player = new Player();
-  canvas.append(player.image);
+  var player_ship = new PlayerShip();
+  canvas.append(player_ship);
 
-  document.body.appendChild(c);        // append the canvas element to document body
+  document.body.appendChild(c);         // append the canvas element to document body
+  document.body.appendChild(overlay_c); // append the canvas element to document body
+  //step();
 
   logger.info("finished");
 }
