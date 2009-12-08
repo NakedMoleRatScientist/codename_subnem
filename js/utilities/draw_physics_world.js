@@ -1,12 +1,11 @@
 function drawPhysicsWorld(t, dt) {
   var world = physics_world.world;
-  var context = overlay_canvas.getContext('2d');
-	for (var j = world.m_jointList; j; j = j.m_next) {
-		drawJoint(j, context);
-	}
+	//for (var j = world.m_jointList; j; j = j.m_next) {
+		//drawJoint(j, context);
+	//}
 	for (var b = world.m_bodyList; b; b = b.m_next) {
 		for (var s = b.GetShapeList(); s != null; s = s.GetNext()) {
-			drawShape(s, context);
+			drawShape(s);
 		}
 	}
 }
@@ -48,12 +47,11 @@ function drawJoint(joint, context) {
 	}
 	context.stroke();
 }
-function drawShape(shape, context) {
-	context.strokeStyle = '#000000';
-	context.beginPath();
+function drawShape(shape) {
 	switch (shape.m_type) {
 	case b2Shape.e_circleShape:
 		{
+      /*
 			var circle = shape;
 			var pos = circle.m_position;
 			var r = circle.m_radius;
@@ -75,11 +73,23 @@ function drawShape(shape, context) {
 			var ax = circle.m_R.col1;
 			var pos2 = new b2Vec2(pos.x + r * ax.x, pos.y + r * ax.y);
 			context.lineTo(pos2.x, pos2.y);
+      */
 		}
 		break;
 	case b2Shape.e_polyShape:
 		{
 			var poly = shape;
+      var vertex_array = [];
+      poly.m_vertices.each(function(vertex){
+        vertex_array.push(vertex.x);
+        vertex_array.push(vertex.y);
+      });
+      var cakePoly = new Polygon(vertex_array, { fill: [255, 255, 255, 1]});
+      cakePoly.x = poly.m_position.x;
+      cakePoly.y = poly.m_position.y;
+      overlay_scene.append(cakePoly);
+      cakePoly.rotation = poly.m_rotation;
+      /*
 			var tV = b2Math.AddVV(poly.m_position, b2Math.b2MulMV(poly.m_R, poly.m_vertices[0]));
 			context.moveTo(tV.x, tV.y);
 			for (var i = 0; i < poly.m_vertexCount; i++) {
@@ -87,26 +97,26 @@ function drawShape(shape, context) {
 				context.lineTo(v.x, v.y);
 			}
 			context.lineTo(tV.x, tV.y);
+      */
 		}
 		break;
 	}
-	context.stroke();
 }
 
-function step(cnt) {
+function stepPhysicsWorld(cnt) {
   var stepping = false;
   var timeStep = 1.0/60;
   var iteration = 2;
   var world = physics_world.world;
-  var ctx = overlay_canvas.getContext('2d');
-  var canvasElm = overlay_canvas.canvas;
+  var ctx = canvas.getContext('2d');
+  var canvasElm = canvas.canvas;
   var canvasWidth = parseInt(canvasElm.width);
   var canvasHeight = parseInt(canvasElm.height);
   var canvasTop = parseInt(canvasElm.style.top);
   var canvasLeft = parseInt(canvasElm.style.left);
 
   world.Step(timeStep, iteration);
-  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+  overlay_scene.removeAllChildren();
+  //ctx.clearRect(0, 0, canvasWidth, canvasHeight);
   drawPhysicsWorld(world, ctx);
-  setTimeout('step(' + (cnt || 0) + ')', 10);
 }
