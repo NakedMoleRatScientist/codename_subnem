@@ -20,7 +20,8 @@ function initializeSubnemEngine(){
     }
   );
   logger.info("successfully set up keybindings");
-  var map = Map(30,30);
+  var map = new Map(30,30);
+
   // Add the Hud
   hud = new Hud;
   canvas.append(hud);
