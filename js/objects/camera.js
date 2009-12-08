@@ -7,14 +7,14 @@ Camera = Klass(
     this.limit_y = size_y - height;
     this.width = width / 2;
     this.height = height / 2;
-  }
+  },
   position_check: function()
   {
     if (this.target.x == this.width)
     {
       logger.info("excat positions");
     }
-  }
+  },
   forward: function()
   {
     if (this.target.x > this.width)
