@@ -12,3 +12,5 @@ end
 config = load('config.yml')
 
 ftp = NET::FTP.new(config['host'],config['username'],config['password'])
+ftp.login
+ftp.close
