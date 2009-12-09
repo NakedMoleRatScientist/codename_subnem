@@ -11,4 +11,4 @@ end
 #Warning:config.yml is full of password and other information that shall not be divulged.
 config = load('config.yml')
 
-ftp = NET::FTP.new(config['host'])
+ftp = NET::FTP.new(config['host'],config['username'],config['password'])
