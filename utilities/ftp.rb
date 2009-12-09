@@ -20,8 +20,8 @@ if File.exist?(filename) == true
   puts"Attempting connection"
 #Warning:config.yml is full of password and other information that shall not be divulged.
   config = load_file(filename)
-  ftp = NET::FTP.new(config['host'],config['username'],config['password'])
-  ftp.login
+  ftp = Net::FTP.new(config['host'],config['username'],config['password'])
+  puts"Closing connection"
   ftp.close
 else
   puts"utilities/config.yml is not found. Creating file"
