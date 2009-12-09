@@ -14,12 +14,12 @@ def write object, filename
   end
 end
 
-filename = 'utilities/config.yml'
+FILENAME = 'utilities/config.yml'
 
-if File.exist?(filename) == true
+if File.exist?(FILENAME) == true
   puts"Attempting connection"
 #Warning:config.yml is full of password and other information that shall not be divulged.
-  config = load_file(filename)
+  config = load_file(FILENAME)
   ftp = Net::FTP.new(config['host'],config['username'],config['password'])
   puts"Closing connection"
   ftp.close
@@ -30,6 +30,6 @@ else
     'username' => 'blah',
     'password' => 'blah'
   }
-  write(yaml_object, filename)
+  write(yaml_object, FILENAME)
   puts"Done. Retry utilities/ftp.rb again"
 end
