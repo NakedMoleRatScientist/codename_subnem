@@ -15,7 +15,7 @@ def write object, filename
 end
 
 FILENAME = 'utilities/config.yml'
-
+MANIFEST = 'MANIFEST'
 if File.exist?(FILENAME) == true
   puts"Attempting connection"
 #Warning:config.yml is full of password and other information that shall not be divulged.
