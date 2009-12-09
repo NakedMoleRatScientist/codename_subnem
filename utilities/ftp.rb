@@ -14,10 +14,13 @@ def write object, filename
   end
 end
 
+def chop_into_array file
+  
+end
 FILENAME = 'utilities/config.yml'
 MANIFEST = 'MANIFEST'
 
-manifest_data = File.read(MANIFEST)
+manifest = File.read(MANIFEST)
 
 
 if File.exist?(FILENAME) == true
