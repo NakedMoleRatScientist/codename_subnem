@@ -13,9 +13,14 @@ def write object, filename
     f.write(object.to_yaml)
   end
 end
-#Warning:config.yml is full of password and other information that shall not be divulged.
-config = load('utilities/config.yml')
 
-ftp = NET::FTP.new(config['host'],config['username'],config['password'])
-ftp.login
-ftp.close
+filename = 'utilities/config.yml'
+
+if Dir.glob("filename")
+#Warning:config.yml is full of password and other information that shall not be divulged.
+  config = load('utilities/config.yml')
+
+  ftp = NET::FTP.new(config['host'],config['username'],config['password'])
+  ftp.login
+  ftp.close
+end
