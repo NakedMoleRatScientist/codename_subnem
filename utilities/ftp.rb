@@ -8,8 +8,13 @@ def load_file file
   return file
 end
 
+def write object, filename
+  File.open filename, 'w' do |f|
+    f.write(object.to_yaml)
+  end
+end
 #Warning:config.yml is full of password and other information that shall not be divulged.
-config = load('config.yml')
+config = load('utilities/config.yml')
 
 ftp = NET::FTP.new(config['host'],config['username'],config['password'])
 ftp.login
