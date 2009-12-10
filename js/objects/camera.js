@@ -1,5 +1,10 @@
 Camera = Klass(
 {
+  target: null,
+  limit_x: null,
+  limit_y: null,
+  width: null,
+  height: null,
   initialize: function(target,width,height,size_x,size_y)
   {
     this.target = target;
