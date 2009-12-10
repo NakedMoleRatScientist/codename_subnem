@@ -16,7 +16,7 @@ Map = Klass (
   },
   add: function(object)
   {
-    this.objects.append(object);
+    this.objects.push(object);
   },
   move: function(motion)
   {
