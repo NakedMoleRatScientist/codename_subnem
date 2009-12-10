@@ -1,6 +1,6 @@
 Camera = Klass(
 {
-  initialize: function(target,width,length,size_x,size_y)
+  initialize: function(target,width,height,size_x,size_y)
   {
     this.target = target;
     this.limit_x = size_x - width;
