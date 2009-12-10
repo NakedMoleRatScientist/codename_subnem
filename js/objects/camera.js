@@ -22,14 +22,14 @@ Camera = Klass(
     }
     else
     {
-      logger.info("Imperfect!");
+      logger.info("Imperfect!")
     }
   },
-  forward: function()
+  width_motion: function()
   {
-    if (this.target.x > this.width)
+    if (target.ship.m_position.x > fix_x)
     {
-      width = -(this.target.x - this.width)
+      correction_x = -(target.ship.m_position.x - fix_x)
     }
   }
 });  
