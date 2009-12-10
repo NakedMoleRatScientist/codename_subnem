@@ -1,4 +1,4 @@
-set :deploy_root, "/home/jadams/deploy/"
+set :deploy_root, "/home/jadams/deploy"
 set :project_name, "subnem"
 set :deploy_path, "#{deploy_root}/#{project_name}"
 set :repo_location, "git://github.com/kiba/codename_subnem.git"
@@ -13,7 +13,7 @@ end
 
 desc "do the initial checkout"
 task :cold_deploy do
-  run "cd #{deploy_root}; git clone #{repo_location} #{project_name}; cd #{project_name}; git checkout -b #{branch}"
+  run "cd #{deploy_root}; git clone #{repo_location} #{project_name}; cd #{project_name}; git checkout -b #{branch} --track origin/#{branch}"
 end
 
 desc "do a git pull to update the deployed code"
