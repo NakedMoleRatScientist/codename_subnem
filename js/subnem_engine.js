@@ -6,7 +6,10 @@ function initializeSubnemEngine(){
   logger.info("successfully created canvas");
 
   canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
-  canvas.clear = true;                 // don't show previous frame
+  canvas.clear = true; // don't show previous frame
+  main_scene = new Rectangle(settings.width, settings.height);
+  main_scene.fill = [0,0,0,1];
+  canvas.append(main_scene);
   canvas.when("keydown", function (ev) {
       ev.preventDefault();
     }
