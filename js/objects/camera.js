@@ -10,9 +10,13 @@ Camera = Klass(
   },
   position_check: function()
   {
-    if (this.target.x == this.width)
+    if (this.target.x == this.width && this.target.y == this.height)
     {
-      logger.info("excat positions");
+      logger.info("Perfect!");
+    }
+    else
+    {
+      logger.info("Imperfect!");
     }
   },
   forward: function()
