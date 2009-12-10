@@ -4,7 +4,7 @@ function initializeSubnemEngine(){
   var c = E.canvas(settings.width, settings.height);          // create a new canvas element
   var canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
 
-  
+  var player = new Player();
   var map = new Map(30,30);
 
   logger.info("successfully created canvas");
@@ -37,7 +37,6 @@ function initializeSubnemEngine(){
   canvas.append(starfield);
 
   // Add the player
-  var player = new Player();
   canvas.append(player.image);
 
   document.body.appendChild(c);        // append the canvas element to document body
