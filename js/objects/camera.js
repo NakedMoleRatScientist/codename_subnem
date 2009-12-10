@@ -29,7 +29,12 @@ Camera = Klass(
   {
     if (target.ship.m_position.x > fix_x)
     {
-      correction_x = -(target.ship.m_position.x - fix_x)
+      correction_x = -(target.ship.m_position.x - fix_x);
     }
+    else
+    {
+      correction_x = (target.ship.m_position.x - fix_x);
+    }
+    return correction_x;
   }
 });  
