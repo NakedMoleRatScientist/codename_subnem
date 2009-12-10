@@ -3,8 +3,12 @@ function initializeSubnemEngine(){
 
   var c = E.canvas(settings.width, settings.height);          // create a new canvas element
   var canvas = new Canvas(c);          // create a CAKE [Canvas] for the element
-  logger.info("successfully created canvas");
 
+  
+  var map = new Map(30,30);
+
+  logger.info("successfully created canvas");
+  
   canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
   canvas.clear = true; // don't show previous frame
   main_scene = new Rectangle(settings.width, settings.height);
@@ -23,7 +27,6 @@ function initializeSubnemEngine(){
     }
   );
   logger.info("successfully set up keybindings");
-  var map = new Map(30,30);
 
   // Add the Hud
   hud = new Hud;
