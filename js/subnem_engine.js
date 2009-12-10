@@ -7,6 +7,8 @@ function initializeSubnemEngine(){
   var player = new Player();
   var map = new Map(30,30);
   map.add(player);
+    
+  var camera = new Camera(player,settings.width,settings.height,map.x,map.y)
   logger.info("successfully created canvas");
   
   canvas.fill = [0,0,0,0.8];           // set the Canvas background to 0.8 opacity black
