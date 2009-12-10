@@ -15,7 +15,9 @@ function initializeSubnemEngine(){
   var map = new Map(30,30);
   player_ship = new PlayerShipBox2D(350,350);
   map.add(player_ship);
-  var camera = new Camera(player_ship,settings.width,setting.height,map.x,map.y);
+  var camera = new Camera(player_ship,settings.width,settings.height,map.x,map.y);
+
+  main_scene.addFrameListener(camera.position_check);
   canvas.append(main_scene);
 
   overlay_scene = new Rectangle(settings.width, settings.height);
