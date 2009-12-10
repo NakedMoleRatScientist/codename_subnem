@@ -88,16 +88,7 @@ function drawShape(shape) {
       cakePoly.x = poly.m_position.x;
       cakePoly.y = poly.m_position.y;
       overlay_scene.append(cakePoly);
-      cakePoly.rotation = poly.m_rotation;
-      /*
-			var tV = b2Math.AddVV(poly.m_position, b2Math.b2MulMV(poly.m_R, poly.m_vertices[0]));
-			context.moveTo(tV.x, tV.y);
-			for (var i = 0; i < poly.m_vertexCount; i++) {
-				var v = b2Math.AddVV(poly.m_position, b2Math.b2MulMV(poly.m_R, poly.m_vertices[i]));
-				context.lineTo(v.x, v.y);
-			}
-			context.lineTo(tV.x, tV.y);
-      */
+      cakePoly.rotation = poly.m_body.m_rotation;
 		}
 		break;
 	}

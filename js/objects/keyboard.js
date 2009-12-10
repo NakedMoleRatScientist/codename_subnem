@@ -9,10 +9,10 @@ Keyboard = Klass({
       player_ship.rotate(1);
     }
     if(this.root.keys.up){
-      player_ship.thrust(1);
+      player_ship.thrust(5000);
     }
     if(this.root.keys.down){
-      player_ship.thrust(-1);
+      player_ship.thrust(-5000);
     }
   }
 });
