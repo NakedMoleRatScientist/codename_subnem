@@ -22,6 +22,8 @@ function initializeSubnemEngine(){
   hud = new Hud;
   main_scene.append(hud);
 
+  keyboard = new Keyboard;
+
   main_scene.when("keydown", function (ev) {
       ev.preventDefault();
     }
@@ -35,6 +37,7 @@ function initializeSubnemEngine(){
       ev.preventDefault();
     }
   );
+  main_scene.addFrameListener(keyboard.frame_listener);
   logger.info("successfully set up keybindings");
 
   // Add the starfields

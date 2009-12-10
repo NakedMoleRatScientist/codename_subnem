@@ -16,6 +16,7 @@ Hud = Klass(CanvasNode, {
     this.draw_velocity_gauge();
     this.draw_rotation_gauge();
     this.draw_thruster_gauge();
+    this.addFrameListener(this.update_rotation_gauge);
   },
   draw_velocity_gauge: function(){
     this.velocity_gauge = new TextNode("Velocity", { fill: [255, 0, 0, 1] });
@@ -34,5 +35,8 @@ Hud = Klass(CanvasNode, {
     this.thruster_gauge.x = this.thruster_gauge_x;
     this.thruster_gauge.y = this.thruster_gauge_y;
     this.append(this.thruster_gauge);
+  },
+  update_rotation_gauge: function(){
+    this.rotation_gauge.text = player_ship.ship.m_rotation;
   }
 });
