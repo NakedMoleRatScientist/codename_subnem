@@ -3,19 +3,19 @@ Camera = Klass(
   target: null,
   limit_x: null,
   limit_y: null,
-  width: null,
-  height: null,
-  initialize: function(target,width,height,size_x,size_y)
+  fix_x: null,
+  fix_y: null,
+  initialize: function(player,width,height,size_x,size_y)
   {
-    this.target = target;
-    this.limit_x = size_x - width;
-    this.limit_y = size_y - height;
-    this.width = width / 2;
-    this.height = height / 2;
+    target = player;
+    limit_x = size_x - width;
+    limit_y = size_y - height;
+    fix_x = width / 2;
+    fix_y = height / 2;
   },
   position_check: function()
   {
-    if (this.target.x == this.width && this.target.y == this.height)
+    if (target._x == fix_x && target._y == fix_y)
     {
       logger.info("Perfect!");
     }
