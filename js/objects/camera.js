@@ -15,7 +15,8 @@ Camera = Klass(
   },
   position_check: function()
   {
-    if (target._x == fix_x && target._y == fix_y)
+    logger.info(target.ship.m_position.x);
+    if (target.ship.m_position.x == fix_x && target.ship.position.y == fix_y)
     {
       logger.info("Perfect!");
     }
