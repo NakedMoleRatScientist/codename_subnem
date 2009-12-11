@@ -50,7 +50,6 @@ function initializeSubnemEngine(){
   //var starfield = new Starfield(settings.width, settings.height);
   //canvas.append(starfield);
 
-  player_ship = new PlayerShipBox2D(350, 350);
   canvas.append(player_ship);
   document.body.appendChild(c);         // append the canvas element to document body
 
