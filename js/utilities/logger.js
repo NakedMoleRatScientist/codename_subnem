@@ -1,9 +1,11 @@
 function Logger(){
   this.info = function(message){
-    try {
-      console.log(message);
-    } catch(error) {
-      // do nothing
+    if(console){
+      try {
+        console.log(message);
+      } catch(error) {
+        // do nothing
+      }
     }
   }
 }
