@@ -34,5 +34,15 @@ Camera = Klass(
       correction_x = (target.ship.m_position.x - fix_x);
     }
     return correction_x;
+  },
+  get_motion: function()
+  {
+    move_x = 0;
+    move_y = 0;
+    if (position_check == false)
+    {
+      move_x = width_motion();
+    }
+    return (x: move_x, y: move_y);
   }
 });  
