@@ -17,7 +17,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.x = this._x;
     this.image.y = this._y;
     this.rotate_increment = .1;
-    console.log(this.image);
+    logger.info(this.image);
     this.thrust(5000);
     this.thruster = new Thruster();
     this.image.root_object = this;
@@ -30,14 +30,14 @@ PlayerShipBox2D = Klass(CanvasNode, {
     var world = physics_world.world;
     ship_def.extents.Set(5, 20);
     ship_def.density = 0.5;
-    console.log(ship_def);
+    logger.info(ship_def);
 
     var ship_body = new b2BodyDef();
     ship_body.AddShape(ship_def);
     ship_body.position.Set(this._x, this._y);
 
-    console.log("2");
-    console.log(ship_body);
+    logger.info("2");
+    logger.info(ship_body);
     logger.info("== done creating ship ==");
     return world.CreateBody(ship_body);
   },

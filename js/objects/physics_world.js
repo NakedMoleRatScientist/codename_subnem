@@ -1,6 +1,6 @@
 PhysicsWorld = Klass({
   initialize: function(){
-    console.log("initializing physics world.");
+    logger.info("initializing physics world.");
     this.world = this.createWorld();
   },
   createWorld: function(){

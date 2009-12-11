@@ -1,6 +1,6 @@
 function Logger(){
   this.info = function(message){
-    if(console){
+    if(!(typeof(console) != "undefined")){
       try {
         console.log(message);
       } catch(error) {

@@ -3980,7 +3980,6 @@ Canvas = Klass(CanvasNode, {
         try {
           this.handleDraw(ctx)
         } catch(e) {
-          console.log(e)
           throw(e)
         }
         this.changed = false
