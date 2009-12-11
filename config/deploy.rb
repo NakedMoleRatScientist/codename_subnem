@@ -1,10 +1,11 @@
-set :deploy_root, "/home/jadams/deploy"
+set :user, "hackerkiba"
+set :deploy_root, "subnem.kibabase.com"
 set :project_name, "subnem"
 set :deploy_path, "#{deploy_root}/#{project_name}"
 set :repo_location, "git://github.com/kiba/codename_subnem.git"
 set :branch, "box2d"
 
-role :web, "knewter.homelinux.net"
+role :web, "kibabase.com"
 
 desc "create all the necessary folders"
 task :setup do
