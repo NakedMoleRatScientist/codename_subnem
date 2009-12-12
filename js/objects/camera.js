@@ -21,7 +21,7 @@ Camera = Klass(
   },
   y_position_check: function(y)
   {
-    if (target.image.y == fix_y)
+    if (y == fix_y)
     {
       return true;
     }
@@ -31,16 +31,16 @@ Camera = Klass(
   {
     logger.info("x: " + target.ship.m_position.x + "; y: " + target.ship.m_position.y);
   },
-  width_motion: function()
+  width_motion: function(x)
   {
     correction_x = 0;
-    if (target.image.x < fix_x)
+    if (x < fix_x)
     {
-      correction_x = -(target.image.x - fix_x);
+      correction_x = -(x - fix_x);
     }
-    else if (target.image.x > fix_x)
+    else if (x > fix_x)
     {
-      correction_x = (target.image.x - fix_x);
+      correction_x = (x - fix_x);
     }
     return correction_x;
   },
@@ -48,11 +48,10 @@ Camera = Klass(
   {
     move_x = 0;
     move_y = 0;
-    this.log_position();
     if (this.x_position_check(x) == false)
     {
-      move_x = this.width_motion();
-      logger.info(move_x);
+      move_x = this.width_motion(x);
+      logger.info(x);
     }
     return {offset_x: move_x, offset_y: move_y};
   }
