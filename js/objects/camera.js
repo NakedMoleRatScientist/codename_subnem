@@ -54,6 +54,7 @@ Camera = Klass(
     if (this.x_position_check() == false)
     {
       move_x = this.width_motion();
+      logger.info(move_x);
     }
     return {x: move_x, y: move_y};
   }
