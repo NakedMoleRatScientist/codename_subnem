@@ -6,24 +6,27 @@ The quadrant system is likely to be used for large scale objects, such as planet
 
 Setting the map size meant the number of quadrants by hieght and width.
 */
-Map = Klass (
+Map = Klass(
 {
+  x: null,
+  y: null,
+  entities: null,
   initialize: function(width,height)
   {
-    this.x = width * 1000;
-    this.y = height * 1000;
-    this.objects = [];
+    x = width * 1000;
+    y = height * 1000;
+    entities = [];
   },
-  add: function(object)
+  add: function(entity)
   {
-    this.objects.push(object);
+    entities.push(entity);
   },
   move: function(motion)
   {
-    for (n = 0; n < this.objects.length; n++)
+    for (n = 0; n < entities.length; n++)
     {
-      objects.x += motion.x;
-      objects.y += motion.y;
+      entities[n].ship.m_position.x += motion.x;
+      entities[n].ship.m_position.y += motion.y;
     }
   }
 });
