@@ -15,7 +15,7 @@ Camera = Klass(
   },
   x_position_check: function()
   {
-    if (target.ship.m_position.x == fix_x)
+    if (target.image.x == fix_x)
     {
       return true;
     }
@@ -23,7 +23,7 @@ Camera = Klass(
   },
   y_position_check: function()
   {
-    if (target.ship.m_position.y == fix_y)
+    if (target.image.y == fix_y)
     {
       return true;
     }
