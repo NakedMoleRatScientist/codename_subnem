@@ -34,14 +34,7 @@ Camera = Klass(
   width_motion: function(x)
   {
     correction_x = 0;
-    if (x < fix_x)
-    {
-      correction_x = -(x - fix_x);
-    }
-    else if (x > fix_x)
-    {
-      correction_x = (x - fix_x);
-    }
+    correction_x = (fix_x - x);
     return correction_x;
   },
   get_motion: function(x,y)
