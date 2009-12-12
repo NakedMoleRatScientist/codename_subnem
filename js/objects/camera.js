@@ -36,13 +36,13 @@ Camera = Klass(
   width_motion: function()
   {
     correction_x = 0;
-    if (target.ship.m_position.x < fix_x)
+    if (target.image.x < fix_x)
     {
-      correction_x = -(target.ship.m_position.x - fix_x);
+      correction_x = -(target.image.x - fix_x);
     }
-    else if (target.ship.m_position.x > fix_x)
+    else if (target.image.x > fix_x)
     {
-      correction_x = (target.ship.m_position.x - fix_x);
+      correction_x = (target.image.x - fix_x);
     }
     return correction_x;
   },
