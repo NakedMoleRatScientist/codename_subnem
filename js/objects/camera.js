@@ -44,16 +44,16 @@ Camera = Klass(
     }
     return correction_x;
   },
-  get_motion: function()
+  get_motion: function(x,y)
   {
     move_x = 0;
     move_y = 0;
     this.log_position();
-    if (this.x_position_check() == false)
+    if (this.x_position_check(x) == false)
     {
       move_x = this.width_motion();
       logger.info(move_x);
     }
-    return {x: move_x, y: move_y};
+    return {offset_x: move_x, offset_y: move_y};
   }
 });  
