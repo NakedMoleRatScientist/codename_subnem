@@ -39,10 +39,10 @@ Camera = Klass(
   {
     move_x = 0;
     move_y = 0;
-    if (position_check == false)
+    if (this.position_check == false)
     {
       move_x = width_motion();
     }
-    return (x: move_x, y: move_y);
+    return {x: move_x, y: move_y};
   }
 });  
