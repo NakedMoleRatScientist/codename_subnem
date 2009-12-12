@@ -59,6 +59,10 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.x = this.root_object.ship.m_position.x;
     this.y = this.root_object.ship.m_position.y;
     this.rotation = this.root_object.image_rotation();
+   //Camera offset
+    motion = this.root_object.camera.get_motion(this.x,this.y);
+    this.x += motion.offset_x;
+    this.y += motion.offset_y;
   },
   image_rotation: function(){
     // compensate for the image being in a funky orientation by default...
