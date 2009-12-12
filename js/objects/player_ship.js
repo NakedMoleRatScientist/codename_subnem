@@ -6,10 +6,11 @@ PlayerShipBox2D = Klass(CanvasNode, {
   ship: null,
   thruster: null,
   rotate_increment: null,
-  initialize: function(x, y){
+  initialize: function(x, y, camera){
     CanvasNode.initialize.call(this);
     this._x = x;
     this._y = y;
+    this.camera = camera
     this.ship = this.create_ship(this._x, this._y);
     this.ship.isBullet = true; // This doesn't work, it seems :(
     this.image = new ImageNode(this.image_file);
