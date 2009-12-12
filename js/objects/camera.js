@@ -1,27 +1,25 @@
 Camera = Klass(
 {
-  target: null,
   limit_x: null,
   limit_y: null,
   fix_x: null,
   fix_y: null,
-  initialize: function(player,width,height,size_x,size_y)
+  initialize: function(width,height,size_x,size_y)
   {
-    target = player;
     limit_x = size_x - width;
     limit_y = size_y - height;
     fix_x = width / 2;
     fix_y = height / 2;
   },
-  x_position_check: function()
+  x_position_check: function(x)
   {
-    if (target.image.x == fix_x)
+    if (x == fix_x)
     {
       return true;
     }
     return false;
   },
-  y_position_check: function()
+  y_position_check: function(y)
   {
     if (target.image.y == fix_y)
     {
