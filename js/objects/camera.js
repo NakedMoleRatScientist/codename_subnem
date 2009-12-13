@@ -42,7 +42,7 @@ Camera = Klass(
     correction_y = 0;
     correction_y = (fix_y - y);
     return correction_y;
-  }
+  },
   get_motion: function(x,y)
   {
     move_x = 0;
@@ -50,6 +50,10 @@ Camera = Klass(
     if (this.x_position_check(x) == false)
     {
       move_x = this.width_motion(x);
+    }
+    if (this.y_position_check(y) == false)
+    {
+      move_y = this.width_motion(y);
     }
     return {offset_x: move_x, offset_y: move_y};
   }
