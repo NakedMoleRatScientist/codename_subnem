@@ -25,8 +25,8 @@ Map = Klass(
   {
     for (n = 0; n < entities.length; n++)
     {
-      entities[n].ship.m_position.x += motion.x;
-      entities[n].ship.m_position.y += motion.y;
+      entities[n].image.x += motion.x;
+      entities[n].image.y += motion.y;
     }
   }
 });
