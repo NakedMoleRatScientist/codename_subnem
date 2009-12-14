@@ -1,13 +1,9 @@
 Camera = Klass(
 {
-  limit_x: null,
-  limit_y: null,
   fix_x: null,
   fix_y: null,
-  initialize: function(width,height,size_x,size_y)
+  initialize: function(width,height)
   {
-    limit_x = size_x - width;
-    limit_y = size_y - height;
     fix_x = width / 2;
     fix_y = height / 2;
   },
