@@ -2,11 +2,15 @@ Asteroid = Klass(CanvasNode, {
   _x: null,
   _y: null,
   image_file: 'asset/game/asteroid.png',
+  image: null,
   physics_proxy: null,
   initialize: function(x, y){
     CanvasNode.initialize.call(this);
     this._x = x;
     this._y = y;
+    this.image.x = this._x;
+    this.image.y = this._y;
+    this.append(this.image);
     this.physics_proxy = this.create_asteroid(this._x, this._y);
   },
   create_asteroid: function(x, y){
