@@ -13,7 +13,7 @@ function initializeSubnemEngine(){
   main_scene.fill = [0, 0, 0, 1];
   main_scene.addFrameListener(stepPhysicsWorld);
   var map = new Map(30,30);
-  var camera = new Camera(settings.width,settings.height,map.x,map.y);
+  var camera = new Camera(settings.width,settings.height);
   player_ship = new PlayerShipBox2D(350,350,camera);
   //map.add(player_ship);
   var asteroid = new Asteroid(200, 200);
