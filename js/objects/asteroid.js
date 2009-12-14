@@ -8,6 +8,7 @@ Asteroid = Klass(CanvasNode, {
     CanvasNode.initialize.call(this);
     this._x = x;
     this._y = y;
+    this.image = new ImageNode(this.image_file);
     this.image.x = this._x;
     this.image.y = this._y;
     this.append(this.image);
