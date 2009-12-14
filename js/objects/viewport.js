@@ -7,7 +7,7 @@ ViewPort = Klass(
   add: function(entity)
   {
     entities.push(entity);
-  }
+  },
   move: function(motion)
   {
     for (n = 0; n < entities.length; n++)
