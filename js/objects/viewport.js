@@ -16,4 +16,4 @@ ViewPort = Klass(
       entities[n].image.y += motion.offset_y;
     }
   }
-}
+});
