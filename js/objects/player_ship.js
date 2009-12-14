@@ -6,11 +6,12 @@ PlayerShipBox2D = Klass(CanvasNode, {
   ship: null,
   thruster: null,
   rotate_increment: null,
-  initialize: function(x, y, camera){
+  initialize: function(x, y, camera, viewport){
     CanvasNode.initialize.call(this);
     this._x = x;
     this._y = y;
-    this.camera = camera
+    this.camera = camera;
+    this.viewport = viewport;
     this.ship = this.create_ship(this._x, this._y);
     this.ship.isBullet = true; // This doesn't work, it seems :(
     this.image = new ImageNode(this.image_file);
@@ -19,7 +20,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.y = this._y;
     this.rotate_increment = .1;
     logger.info(this.image);
-    this.thrust(5000);
+    this.thrust(5000);n
     this.thruster = new Thruster();
     this.image.root_object = this;
     this.image.addFrameListener(this.sync_image_with_ship);
@@ -63,6 +64,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     motion = this.root_object.camera.get_motion(this.x,this.y);
     this.x += motion.offset_x;
     this.y += motion.offset_y;
+    viewport.move(motion);
   },
   image_rotation: function(){
     // compensate for the image being in a funky orientation by default...
