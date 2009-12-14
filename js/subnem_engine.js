@@ -16,7 +16,7 @@ function initializeSubnemEngine(){
   var map = new Map(30,30);
   var camera = new Camera(settings.width,settings.height);
   var viewport = new ViewPort();
-  player_ship = new PlayerShipBox2D(350,350,camera);
+  player_ship = new PlayerShipBox2D(350,350,camera,viewport);
   map.add(player_ship);
   logger.info("adding asteroid");
   map.add(asteroid);
