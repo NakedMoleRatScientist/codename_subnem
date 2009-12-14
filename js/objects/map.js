@@ -21,12 +21,4 @@ Map = Klass(
   {
     entities.push(entity);
   },
-  move: function(motion)
-  {
-    for (n = 0; n < entities.length; n++)
-    {
-      entities[n].image.x += motion.x;
-      entities[n].image.y += motion.y;
-    }
-  }
 });
