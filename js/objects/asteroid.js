@@ -11,6 +11,7 @@ Asteroid = Klass(CanvasNode, {
     this.image = new ImageNode(this.image_file);
     this.image.x = this._x;
     this.image.y = this._y;
+    this.image.centered = true;
     this.append(this.image);
     this.physics_proxy = this.create_asteroid(this._x, this._y);
   },
