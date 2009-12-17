@@ -20,8 +20,8 @@ function initializeSubnemEngine(){
 //  map.add(player_ship);
   logger.info("adding asteroid");
   //map.add(asteroid);
-  viewport.add(asteroid);
-  logger.info("added asteroid");
+  //viewport.add(asteroid);
+  //logger.info("added asteroid");
 
   //main_scene.addFrameListener(function(t, dt){ map.move(camera.get_motion()) });
   canvas.append(main_scene);

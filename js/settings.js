@@ -5,7 +5,7 @@ Settings = Klass(Object, {
   height: 800,
   //player_ship_image_path: "assets/game/fighter_x1/main.png",
   player_ship_image_path: "assets/game/javelin/javelin.png",
-  //asteroid_image_path: "assets/game/asteroid/asteroid.png", // this doesn't exist yet
+  asteroid_image_path: "assets/game/asteroid.png", // this doesn't exist yet
   initialize: function(){
   }
 });

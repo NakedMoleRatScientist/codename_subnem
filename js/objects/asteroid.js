@@ -1,7 +1,7 @@
 Asteroid = Klass(CanvasNode, {
   _x: null,
   _y: null,
-  image_file: 'asset/game/asteroid.png',
+  image_file: Object.loadImage(settings.asteroid_image_path),
   image: null,
   physics_proxy: null,
   initialize: function(x, y){
