@@ -48,10 +48,14 @@ function initializeSubnemEngine(){
   );
   main_scene.addFrameListener(keyboard.frame_listener);
   logger.info("successfully set up keybindings");
-
+  logger.info("adding object to viewport");
+  map.logAnObject(0);
+  viewport.appendObjectGroup(map.getEntities());
+  logger.info("successful addition");
   // Add the starfields
   //var starfield = new Starfield(settings.width, settings.height);
   //canvas.append(starfield);
+  canvas.append(viewport);
   canvas.append(player_ship);
   document.body.appendChild(c);         // append the canvas element to document body
 
