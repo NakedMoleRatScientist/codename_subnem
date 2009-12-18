@@ -14,6 +14,7 @@ ViewPort = Klass(CanvasNode,
   appendObject: function(object)
   {
     this.append(object);
+    logger.info("verify: " + this.contains(object));
   },
   appendObjectGroup: function(group)
   {
