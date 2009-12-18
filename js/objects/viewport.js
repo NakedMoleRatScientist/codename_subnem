@@ -6,10 +6,6 @@ ViewPort = Klass(CanvasNode,
   initialize: function()
   {
   },
-  add: function(entity)
-  {
-    entities.push(entity);
-  },
   move: function(motion)
   {
     for (n = 0; n < entities.length; n++)
@@ -18,12 +14,8 @@ ViewPort = Klass(CanvasNode,
       entities[n].image.y += motion.offset_y;
     }
   },
-  appendToCanvas: function()
+  appendObject: function(object)
   {
-    for (n = 0; n < entities.length; n++)
-    {
-      this.append(entities[n]);
-    }
-         
+    this.append(object);
   }
 });
