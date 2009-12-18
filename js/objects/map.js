@@ -25,7 +25,17 @@ Map = Klass(
   {
     switch (select)
     {
-     case 1: entities.push(new Asteroid(x,y));
+     case 1: this.add(new Asteroid(x,y));
     }
+  },
+  getEntities: function()
+  {
+    logger.info("return entites");
+    return entities;
+  },
+  logAnObject: function(n)
+  {
+    logger.info("x: " + entities[n].x);
+    logger.info("y: " + entities[n].y);
   }
 });
