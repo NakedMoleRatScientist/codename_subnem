@@ -8,8 +8,8 @@ ViewPort = Klass(CanvasNode,
   },
   move: function(motion)
   {
-    this.x += motion.offset_x;
-    this.y += motion.offset_y;
+    this.x = motion.offset_x;
+    this.y = motion.offset_y;
   },
   appendObject: function(object)
   {
