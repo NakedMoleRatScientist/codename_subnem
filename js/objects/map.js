@@ -35,7 +35,7 @@ Map = Klass(
   },
   logAnObject: function(n)
   {
-    logger.info("x: " + entities[n].x);
-    logger.info("y: " + entities[n].y);
+    logger.info("x: " + entities[n].image.x);
+    logger.info("y: " + entities[n].image.y);
   }
 });
