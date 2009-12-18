@@ -21,4 +21,11 @@ Map = Klass(
   {
     entities.push(entity);
   },
+  create_object: function(select, x ,y)
+  {
+    switch (select)
+    {
+      case 1: entities.push(new Asteroid(x,y)
+    }
+  }
 });
