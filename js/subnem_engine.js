@@ -12,17 +12,14 @@ function initializeSubnemEngine(){
   main_scene = new Rectangle(settings.width, settings.height);
   main_scene.fill = [0, 0, 0, 1];
   main_scene.addFrameListener(stepPhysicsWorld);
-  var asteroid = new Asteroid(200,200);
   var map = new Map(30,30);
   var camera = new Camera(settings.width,settings.height);
   var viewport = new ViewPort();
   player_ship = new PlayerShipBox2D(350,350,camera,viewport);
 //  map.add(player_ship);
   logger.info("adding asteroid");
-  //map.add(asteroid);
-  //viewport.add(asteroid);
-  //logger.info("added asteroid");
-
+  map.create_object(1,200,200);
+  logger.info("succeeding in addition of asteroid");
   //main_scene.addFrameListener(function(t, dt){ map.move(camera.get_motion()) });
   canvas.append(main_scene);
 
@@ -55,7 +52,6 @@ function initializeSubnemEngine(){
   // Add the starfields
   //var starfield = new Starfield(settings.width, settings.height);
   //canvas.append(starfield);
-  canvas.append(asteroid);
   canvas.append(player_ship);
   document.body.appendChild(c);         // append the canvas element to document body
 
