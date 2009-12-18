@@ -5,6 +5,7 @@ ViewPort = Klass(CanvasNode,
   entities: null,
   initialize: function()
   {
+    CanvasNode.initialize.call(this);
   },
   move: function(motion)
   {
@@ -17,7 +18,6 @@ ViewPort = Klass(CanvasNode,
   },
   appendObjectGroup: function(group)
   {
-    logger.info("Are we here?");
     for (n = 0; n < group.length; n++)
     {
       logger.info(group[n].image.x);
