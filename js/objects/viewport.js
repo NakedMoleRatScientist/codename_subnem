@@ -17,8 +17,11 @@ ViewPort = Klass(CanvasNode,
   },
   appendObjectGroup: function(group)
   {
+    logger.info("Are we here?");
     for (n = 0; n < group.length; n++)
     {
+      logger.info(group[n].image.x);
+      logger.info(group[n].image.y);
       this.appendObject(group[n]);
     }
   }
