@@ -25,7 +25,7 @@ Map = Klass(
   {
     switch (select)
     {
-      case 1: entities.push(new Asteroid(x,y)
+     case 1: entities.push(new Asteroid(x,y));
     }
   }
 });
