@@ -2,7 +2,6 @@ ViewPort = Klass(CanvasNode,
 {
   x: 0,
   y: 0,
-  entities: null,
   initialize: function()
   {
     CanvasNode.initialize.call(this);
