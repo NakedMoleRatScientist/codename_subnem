@@ -20,7 +20,7 @@ function initializeSubnemEngine(){
   logger.info("adding asteroid");
   map.create_object(1,200,200);
   logger.info("succeeding in addition of asteroid");
-  map.create_object(2,400,200);
+  map.create_object(2,600,200);
   //main_scene.addFrameListener(function(t, dt){ map.move(camera.get_motion()) });
   canvas.append(main_scene);
 
