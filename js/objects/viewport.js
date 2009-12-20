@@ -14,14 +14,11 @@ ViewPort = Klass(CanvasNode,
   appendObject: function(object)
   {
     this.append(object);
-    logger.info("verify: " + this.contains(object));
   },
   appendObjectGroup: function(group)
   {
     for (n = 0; n < group.length; n++)
     {
-      logger.info(group[n].image.x);
-      logger.info(group[n].image.y);
       this.appendObject(group[n]);
     }
   }
