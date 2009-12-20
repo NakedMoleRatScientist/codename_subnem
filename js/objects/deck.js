@@ -23,8 +23,8 @@ Deck = Klass(CanvasNode, {
     logger.info("setup deck");
 
     var deck_body = new b2BodyDef();
-    asteroid_body.AddShape(deck_def);
-    asteroid_body.position.Set(this._x, this._y);
+    deck_body.AddShape(deck_def);
+    deck_body.position.Set(this._x, this._y);
     logger.info("heyooo");
 
     return world.CreateBody(deck_body);
