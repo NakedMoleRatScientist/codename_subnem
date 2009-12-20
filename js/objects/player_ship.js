@@ -19,7 +19,6 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.x = this._x;
     this.image.y = this._y;
     this.rotate_increment = .1;
-    logger.info(this.image);
     this.thrust(5000);
     this.thruster = new Thruster();
     this.image.root_object = this;
@@ -38,18 +37,11 @@ PlayerShipBox2D = Klass(CanvasNode, {
     ship_body.AddShape(ship_def);
     ship_body.position.Set(this._x, this._y);
 
-    logger.info("2");
     logger.info(ship_body);
     logger.info("== done creating ship ==");
     return world.CreateBody(ship_body);
   },
   thrust: function(amount){ // 1 is forward, -1 is backwards
-            /*
-    var vec = new b2Vec2(20000, 0);
-    vec = b2Math.MulFV(direction, vec);
-    vec = b2Math.b2MulTMV(this.ship.m_R, vec);
-    this.ship.ApplyImpulse(vec, this.ship.GetCenterPosition());
-    */
     var thrust_vec = new b2Mat22(new b2Vec2(1, 0), new b2Vec2(1, 1));
     thrust_vec.Set(this.ship.m_rotation);
     vec = b2Math.MulFV(amount, thrust_vec.col2);
@@ -60,7 +52,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.x = this.root_object.ship.m_position.x;
     this.y = this.root_object.ship.m_position.y;
     this.rotation = this.root_object.image_rotation();
-   //Camera offset
+    //Camera offset
     motion = this.root_object.camera.get_motion(this.x,this.y);
     this.x += motion.offset_x;
     this.y += motion.offset_y;
