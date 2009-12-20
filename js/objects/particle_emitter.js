@@ -20,9 +20,19 @@ ParticleEmitter = Klass(CanvasNode, {
     this.counter += dt;
     this._x = this.root.mouseX;
     this._y = this.root.mouseY;
-    if(this.counter > 250){
+    if(this.counter > 5){
       this.counter = 0;
-      this.emit_jittered_particle(10);
+      var color1 = this.get_random_color();
+      var color2 = this.get_random_color();
+      var color3 = this.get_random_color();
+      var rand_color = [color1, color2, color3, 1];
+      var fire_color1 = [213, 20,  0, .7];
+      var fire_color2 = [235, 146, 0, .7];
+      var fire_color3 = [235, 212, 0, .7];
+      var fire_colors = [fire_color1, fire_color2, fire_color3];
+      var which_fire = parseInt(Math.random() * fire_colors.length) - 1;
+      which_fire = (which_fire < 0) ? 0 : which_fire;
+      this.emit_jittered_particle(4, fire_colors[which_fire]);
     }
   },
   emit_particle: function(num){
@@ -33,18 +43,32 @@ ParticleEmitter = Klass(CanvasNode, {
     p = new Particle(this.x, this.y, white, dir, size, ttl);
     this.append(p);
   },
-  emit_jittered_particle: function(num){
+  emit_jittered_particle: function(num, color){
     white = [255, 255, 255, 1];
+    if(color == undefined){
+      color = white;
+    }
     for(i=0;i<num;i++){
       dir = new b2Vec2(this.direction.x, this.direction.y);
-      var jitter1 = Math.random(1);
-      var jitter2 = Math.random(1);
+      var jitter1 = Math.random();
+      var jitter2 = Math.random();
+      var jitter3 = Math.random();
+      var jitter4 = Math.random();
+      var jitter5 = Math.random();
+      var jitter6 = Math.random();
       dir.x = jitter1 / 20;
       dir.y = jitter2 / 20;
-      var size = 1;
+      color[0] += parseInt(jitter3 * 32);
+      color[1] += parseInt(jitter4 * 32);
+      color[2] += parseInt(jitter5 * 32);
+      var size_jitter = parseInt(jitter6 * 4);
+      var size = 1 + size_jitter;
       var ttl = 3000;
-      var p = new Particle(this._x, this._y, white, dir, size, ttl);
+      var p = new Particle(this._x, this._y, color, dir, size, ttl);
       this.append(p);
     }
+  },
+  get_random_color: function(){
+    return parseInt(Math.random() * 255);
   }
 });

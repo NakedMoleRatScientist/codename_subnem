@@ -45,7 +45,7 @@ Particle = Klass(CanvasNode, {
     }
   },
   add_particle: function(){
-    this._particle = new Rectangle(this.size, this.size, { fill: this.color });
+    this._particle = new Circle(this.size, { fill: this.color });
     this.append(this._particle);
   }
 });
