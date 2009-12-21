@@ -15,7 +15,7 @@ WeaponSlot = Klass(
     _x: x;
     _y: y;
   },
-  choose: function(type)
+  mount: function(type)
   {
     switch(type)
     {
