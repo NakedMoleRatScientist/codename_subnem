@@ -25,7 +25,8 @@ Map = Klass(
   {
     switch (select)
     {
-     case 1: this.add(new Asteroid(x,y));
+     case 1: this.add(new Asteroid(x,y)); break;
+     case 2: this.add(new Deck(x,y)); break;
     }
   },
   getEntities: function()
