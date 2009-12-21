@@ -25,6 +25,7 @@ function initializeSubnemEngine(){
 
   overlay_scene = new Rectangle(settings.width, settings.height);
   canvas.append(overlay_scene);
+  overlay_scene.scale = .25;
 
   // Add the Hud
   logger.info("setting up HUD");
