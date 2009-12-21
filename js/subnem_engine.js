@@ -44,7 +44,6 @@ function initializeSubnemEngine(){
     }
   );
   main_scene.when("keyup", function (ev) {
-      logger.info("up");
       ev.preventDefault();
     }
   );

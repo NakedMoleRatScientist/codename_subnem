@@ -4,8 +4,8 @@ PlayerShipBox2D = Klass(CanvasNode, {
   image_file: Object.loadImage(settings.player_ship_image_path),
   image: null,
   ship: null,
-  thruster: null,
   rotate_increment: null,
+  particle_emitter: null,
   initialize: function(x, y, camera, viewport){
     CanvasNode.initialize.call(this);
     this._x = x;
@@ -19,11 +19,13 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.x = this._x;
     this.image.y = this._y;
     this.rotate_increment = .1;
-    this.thrust(5000);
-    this.thruster = new Thruster();
+    this.particle_emitter = new ParticleEmitter(0, 0, new b2Vec2(0, 0));
     this.image.root_object = this;
     this.image.addFrameListener(this.sync_image_with_ship);
+    this.addFrameListener(this.sync_particle_emitter_with_ship);
+    this.append(this.particle_emitter);
     this.append(this.image);
+    this.thrust(5000);
   },
   create_ship: function(){
     logger.info("== creating ship ==");
@@ -41,11 +43,21 @@ PlayerShipBox2D = Klass(CanvasNode, {
     logger.info("== done creating ship ==");
     return world.CreateBody(ship_body);
   },
-  thrust: function(amount){ // 1 is forward, -1 is backwards
+  get_thrust_vec: function(amount){
     var thrust_vec = new b2Mat22(new b2Vec2(1, 0), new b2Vec2(1, 1));
     thrust_vec.Set(this.ship.m_rotation);
-    vec = b2Math.MulFV(amount, thrust_vec.col2);
+    var vec = b2Math.MulFV(amount, thrust_vec.col2);
+    return vec;
+  },
+  thrust: function(amount){ // 1 is forward, -1 is backwards
+    var vec = this.get_thrust_vec(amount);
     this.ship.ApplyImpulse(vec, this.ship.GetCenterPosition());
+    var small_amount = parseInt(amount / 2500);// we thrust by 5000 typically, and this is way too many particles to emit, geez...
+    if(amount > 0){
+      this.particle_emitter.emit_jittered_particle(1 * small_amount);
+    }else{
+      this.particle_emitter.reverse_emit_jittered_particle(-1 * small_amount);
+    }
   },
   sync_image_with_ship: function(t, dt){
     // sync_image_with_ship is called from the context of the Image itself, so here we're modifying the image's x and y, not the playership object
@@ -57,6 +69,13 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.x += motion.offset_x;
     this.y += motion.offset_y;
     this.root_object.viewport.move(motion);
+  },
+  sync_particle_emitter_with_ship: function(t, dt){
+    var vec = this.get_thrust_vec(.05);
+    vec = b2Math.MulFV(-1, vec);
+    this.particle_emitter.x = this.image.x;
+    this.particle_emitter.y = this.image.y;
+    this.particle_emitter.direction = vec;
   },
   image_rotation: function(){
     // compensate for the image being in a funky orientation by default...

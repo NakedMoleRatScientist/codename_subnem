@@ -14,7 +14,6 @@ ParticleEmitter = Klass(CanvasNode, {
     this._x = x;
     this._y = y;
     this.direction = direction;
-    this.addFrameListener(this.emit_every_few);
   },
   emit_every_few: function(t, dt){
     this.counter += dt;
@@ -43,30 +42,48 @@ ParticleEmitter = Klass(CanvasNode, {
     p = new Particle(this.x, this.y, white, dir, size, ttl);
     this.append(p);
   },
+  jitter: function(){
+    return Math.random();
+  },
+  emit_with_jitter: function(direction, color){
+    var dir = new b2Vec2(direction.x, direction.y);
+    console.log(dir);
+    dir.x += this.jitter() / 200;
+    dir.y += this.jitter() / 200;
+    color[0] += parseInt(this.jitter() * 32);
+    color[1] += parseInt(this.jitter() * 32);
+    color[2] += parseInt(this.jitter() * 32);
+    var size_jitter = parseInt(this.jitter() * 4);
+    var size = 1 + size_jitter;
+    var ttl = 3000;
+    var p = new Particle(this._x, this._y, color, dir, size, ttl);
+    this.append(p);
+  },
   emit_jittered_particle: function(num, color){
-    white = [255, 255, 255, 1];
     if(color == undefined){
-      color = white;
+      var color = this.get_fire_color();
     }
     for(i=0;i<num;i++){
-      dir = new b2Vec2(this.direction.x, this.direction.y);
-      var jitter1 = Math.random();
-      var jitter2 = Math.random();
-      var jitter3 = Math.random();
-      var jitter4 = Math.random();
-      var jitter5 = Math.random();
-      var jitter6 = Math.random();
-      dir.x = jitter1 / 20;
-      dir.y = jitter2 / 20;
-      color[0] += parseInt(jitter3 * 32);
-      color[1] += parseInt(jitter4 * 32);
-      color[2] += parseInt(jitter5 * 32);
-      var size_jitter = parseInt(jitter6 * 4);
-      var size = 1 + size_jitter;
-      var ttl = 3000;
-      var p = new Particle(this._x, this._y, color, dir, size, ttl);
-      this.append(p);
+      this.emit_with_jitter(this.direction, color);
     }
+  },
+  reverse_emit_jittered_particle: function(num, color){
+    if(color == undefined){
+      var color = this.get_fire_color();
+    }
+    for(i=0;i<num;i++){
+      reverse_direction = b2Math.MulFV(-1, this.direction);
+      this.emit_with_jitter(reverse_direction, color);
+    }
+  },
+  get_fire_color: function(){
+    var fire_color1 = [213, 20,  0, .7];
+    var fire_color2 = [235, 146, 0, .7];
+    var fire_color3 = [235, 212, 0, .7];
+    var fire_colors = [fire_color1, fire_color2, fire_color3];
+    var which_fire = parseInt(Math.random() * fire_colors.length) - 1;
+    which_fire = (which_fire < 0) ? 0 : which_fire;
+    return fire_colors[which_fire];
   },
   get_random_color: function(){
     return parseInt(Math.random() * 255);
