@@ -1,11 +1,16 @@
-Bullet = Klass(CanvasNode,
+Bullets = Klass(CanvasNode,
 {
   x: null,
   y: null,
-  initialize: function(x_initial,y_initial)
+  size: 3,
+  direction: null,
+  color: [000,170,000],
+  bullets: null,
+  initialize: function(x_initial,y_initial, dir)
   {
     CanvasNode.iniitalize.call(this);
     x = x_initial;
     y = y_initial;
+    direction = dir;
   }
 }
