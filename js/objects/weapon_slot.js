@@ -2,6 +2,7 @@ WeaponSlot = Klass(
 {
   type: null,
   heat_capacity: null,
+  parts: null,
   fire_rate: null,
   cool_rate: null,
   _x: null,
@@ -15,7 +16,7 @@ WeaponSlot = Klass(
   {
     switch(type)
     {
-      case 0: heat_capacity += 200; break;
+      case 0: heat_capacity += 200; parts.push("radiator, 30 meters in length"); break;
     }
   }
 }
