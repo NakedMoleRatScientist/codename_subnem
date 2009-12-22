@@ -12,6 +12,7 @@ Bullet = Klass(CanvasNode,
     x = x_initial;
     y = y_initial;
     direction = dir;
+    this.add_bullet();
   },
   step: function(t, dt)
   {
