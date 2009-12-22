@@ -25,6 +25,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.root_object = this;
     this.image.addFrameListener(this.sync_image_with_ship);
     this.addFrameListener(this.sync_particle_emitter_with_ship);
+    this.addFrameListener(this.sync_weapon_dischager_with_ship);
     this.append(this.particle_emitter);
     this.append(this.image);
     this.thrust(5000);
