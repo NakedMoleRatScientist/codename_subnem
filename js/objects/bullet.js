@@ -12,7 +12,12 @@ Bullets = Klass(CanvasNode,
     x = x_initial;
     y = y_initial;
     direction = dir;
-  }
+  },
+  step: function(t, dt)
+  {
+    x += direction.x * dt;
+    y += direction.y * dt;
+  },
   add_bullet: function()
   {
     bullet = new Circle(size, { fill: color});
