@@ -21,6 +21,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.image.y = this._y;
     this.rotate_increment = .1;
     this.particle_emitter = new ParticleEmitter(0, 0, new b2Vec2(0, 0));
+    this.weapon_discharger = new WeaponDischarger(0,0, new b2Vec2(0, 0));
     this.image.root_object = this;
     this.image.addFrameListener(this.sync_image_with_ship);
     this.addFrameListener(this.sync_particle_emitter_with_ship);
