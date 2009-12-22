@@ -87,7 +87,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.weapon_discharger.x = this.image.x;
     this.weapon_discharger.y = this.image.y;
     this.weapon_discharger.direction = vec;
-  }
+  },
   image_rotation: function(){
     // compensate for the image being in a funky orientation by default...
     return this.ship.m_rotation;
