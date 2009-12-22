@@ -1,4 +1,4 @@
-Bullets = Klass(CanvasNode,
+Bullet = Klass(CanvasNode,
 {
   x: null,
   y: null,
