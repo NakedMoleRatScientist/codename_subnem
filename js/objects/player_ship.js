@@ -66,7 +66,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
   shoot: function()
   {
     this.weapon_discharger.create_bullet();
-  }
+  },
   sync_image_with_ship: function(t, dt){
     // sync_image_with_ship is called from the context of the Image itself, so here we're modifying the image's x and y, not the playership object
     this.x = this.root_object.ship.m_position.x;
