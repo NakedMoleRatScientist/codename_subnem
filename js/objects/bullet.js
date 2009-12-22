@@ -1,4 +1,4 @@
-Bullet = Klass(CanvasNode,
+Bullet = Klass(CanvasNode, 
 {
   x: null,
   y: null,
@@ -8,7 +8,7 @@ Bullet = Klass(CanvasNode,
   bullet: null,
   initialize: function(x_initial,y_initial, dir)
   {
-    CanvasNode.initalize.call(this);
+    CanvasNode.initialize.call(this);
     x = x_initial;
     y = y_initial;
     direction = dir;
