@@ -14,5 +14,9 @@ Keyboard = Klass({
     if(this.root.keys.down){
       player_ship.thrust(-5000);
     }
+    if(this.root.keys.space)
+    {
+      player_ship.shoot();
+    }
   }
 });
