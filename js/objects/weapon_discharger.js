@@ -13,16 +13,6 @@ WeaponDischarger = Klass(CanvasNode, {
     this._y = y;
     this.direction = direction;
   },
-  discharge: function(t,dt)
-  {
-    this.counter += dt;
-    this._x = this.root.mouseX;
-    this._y = this.root.mouseY;
-    if(this.counter > 5){
-      this.counter = 0;
-      this.create_bullet();
-    }
-  },
   create_bullet: function()
   {
     b = new Bullet(x,y,direction);
