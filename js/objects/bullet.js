@@ -24,4 +24,4 @@ Bullet = Klass(CanvasNode,
     bullet = new Circle(size, { fill: color});
     this.append(bullet);
   }
-}
+});
