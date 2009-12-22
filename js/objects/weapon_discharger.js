@@ -15,7 +15,7 @@ WeaponDischarger = Klass(CanvasNode, {
   },
   create_bullet: function()
   {
-    b = new Bullet(x,y,direction);
+    b = new Bullet(this.x,this.y,this.direction);
     this.append(b)
   }
 });
