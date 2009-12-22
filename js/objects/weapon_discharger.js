@@ -1,5 +1,5 @@
 
-WeaponDischarger = Klass(CanvasNOde, {
+WeaponDischarger = Klass(CanvasNode, {
   x: null,
   y: null,
   direction: null,
@@ -25,5 +25,6 @@ WeaponDischarger = Klass(CanvasNOde, {
   },
   create_bullet: function()
   {
+    p = new Bullet(x,y,direction);
   }
 }
