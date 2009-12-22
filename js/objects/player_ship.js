@@ -64,7 +64,8 @@ PlayerShipBox2D = Klass(CanvasNode, {
   },
   // FIXME: rotate_to should really exist on a Ship object...rather than the ship object being implicit in that body
   rotate: function(direction){ // direction: 1 is clockwise, -1 is counterclockwise
-    //this.ship.m_rotation += (direction * this.rotate_increment);
-    this.ship.ApplyTorque(500000 * direction);
+    this.ship.m_rotation += (direction * this.rotate_increment);
+    this.ship.m_angularVelocity = 0;
+    //this.ship.ApplyTorque(500000 * direction);
   }
 });
