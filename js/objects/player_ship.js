@@ -6,6 +6,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
   ship: null,
   rotate_increment: null,
   particle_emitter: null,
+  weapon_discharger: null,
   initialize: function(x, y, camera, viewport){
     CanvasNode.initialize.call(this);
     this._x = x;
