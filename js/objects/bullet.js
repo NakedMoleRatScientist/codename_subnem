@@ -13,18 +13,27 @@ Bullet = Klass(CanvasNode,
     x = x_initial;
     y = y_initial;
     body = this.create_bullet_body(x,y);
+    body.isBullet = true;
     direction = dir;
+    this.start_thrust();
     this.add_bullet();
     this.addFrameListener(this.step)
   },
-  start_thrust: function(vec)
+  get_thrust_vec: function(amount)
   {
-    body.ApplyImpluse(vec,body.GetCenterPosition());
+    var thrust_vec = new b2Mat22(new b2Vec2(1, 0), new b2Vec2(1, 1));
+    thrust_vec.Set(body.m_rotation);
+    var vec = b2Math.MulFV(amount, thrust_vec.col2);
+    return vec;
+  },
+  start_thrust: function()
+  {
+    body.ApplyImpulse(direction,body.GetCenterPosition());
   },
   step: function(t, dt)
   {
-    this.x += direction.x * dt;
-    this.y += direction.y * dt;
+    this.x += body.m_position.x;
+    this.y += body.m_position.y;
   },
   add_bullet: function()
   {
