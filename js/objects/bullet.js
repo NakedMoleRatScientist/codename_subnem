@@ -6,6 +6,7 @@ Bullet = Klass(CanvasNode,
   direction: null,
   color: [000,170,000],
   bullet: null,
+  body: null,
   initialize: function(x_initial,y_initial, dir)
   {
     CanvasNode.initialize.call(this);
