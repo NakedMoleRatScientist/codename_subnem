@@ -21,7 +21,7 @@ Bullet = Klass(CanvasNode,
   },
   add_bullet: function()
   {
-    bullet = new Circle(size, { fill: color});
+    bullet = new Circle(this.size, { fill: this.color});
     this.append(bullet);
   }
 });
