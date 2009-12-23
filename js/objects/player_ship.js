@@ -88,7 +88,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
   sync_weapon_discharger_with_ship: function(t , dt)
   {
     var vec = this.get_thrust_vec(.05);
-    vec = b2Math.MulFV(-1, vec);
+    vec = b2Math.MulFV(1, vec);
     this.weapon_discharger.x = this.ship.m_position.x;
     this.weapon_discharger.y = this.ship.m_position.y;
     this.weapon_discharger.direction = vec;
