@@ -20,7 +20,7 @@ Bullet = Klass(CanvasNode,
   start_thrust: function(vec)
   {
     body.ApplyImpluse(vec,body.GetCenterPosition());
-  }
+  },
   step: function(t, dt)
   {
     this.x += direction.x * dt;
@@ -35,13 +35,12 @@ Bullet = Klass(CanvasNode,
   {
     var bullet_def = new b2BoxDef();
     var world = physics_world.world;
-    bullet_def.extentsSet(1,3);
+    bullet_def.extents.Set(1,3);
     bullet_def.density = 0.3;
     
     var bullet_body = new b2BodyDef();
-    bullet_body.addShape(bullet_def);
-    bullet_body.Set(this.x = x);
-    bullet_body.Set(this.y = y);
+    bullet_body.AddShape(bullet_def);
+    bullet_body.position.Set(this.x = x, this.y = y);
      
     return world.CreateBody(bullet_body);
   }
