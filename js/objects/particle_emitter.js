@@ -47,7 +47,6 @@ ParticleEmitter = Klass(CanvasNode, {
   },
   emit_with_jitter: function(direction, color){
     var dir = new b2Vec2(direction.x, direction.y);
-    console.log(dir);
     dir.x += this.jitter() / 200;
     dir.y += this.jitter() / 200;
     color[0] += parseInt(this.jitter() * 32);
