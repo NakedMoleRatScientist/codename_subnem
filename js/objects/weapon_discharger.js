@@ -9,8 +9,8 @@ WeaponDischarger = Klass(CanvasNode, {
   initialize: function(x , y , direction)
   {
     CanvasNode.initialize.call(this);
-    this.x = 500;
-    this.y = 500;
+    this.x = 0;
+    this.y = 0;
     this._x = x;
     this._y = y;
     this.direction = direction;
