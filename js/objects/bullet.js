@@ -10,11 +10,11 @@ Bullet = Klass(CanvasNode,
   initialize: function(x_initial,y_initial, dir)
   {
     CanvasNode.initialize.call(this);
-    x = x_initial;
-    y = y_initial;
-    body = this.create_bullet_body(x,y);
-    body.isBullet = true;
-    direction = dir;
+    this.x = x_initial;
+    this.y = y_initial;
+    this.body = this.create_bullet_body(x,y);
+    this.body.isBullet = true;
+    this.direction = dir;
     this.start_thrust();
     this.add_bullet();
     this.addFrameListener(this.step)
@@ -22,18 +22,19 @@ Bullet = Klass(CanvasNode,
   get_thrust_vec: function(amount)
   {
     var thrust_vec = new b2Mat22(new b2Vec2(1, 0), new b2Vec2(1, 1));
-    thrust_vec.Set(body.m_rotation);
+    thrust_vec.Set(this.body.m_rotation);
     var vec = b2Math.MulFV(amount, thrust_vec.col2);
     return vec;
   },
   start_thrust: function()
   {
-    body.ApplyImpulse(direction,body.GetCenterPosition());
+    var vec = this.get_thrust_vec(1000);
+    this.body.ApplyImpulse(vec,this.body.GetCenterPosition());
   },
   step: function(t, dt)
   {
-    this.x += body.m_position.x;
-    this.y += body.m_position.y;
+    this.x += this.body.m_position.x;
+    this.y += this.body.m_position.y;
   },
   add_bullet: function()
   {
@@ -49,7 +50,7 @@ Bullet = Klass(CanvasNode,
     
     var bullet_body = new b2BodyDef();
     bullet_body.AddShape(bullet_def);
-    bullet_body.position.Set(this.x = x, this.y = y);
+    bullet_body.position.Set(this.x,this.y);
      
     return world.CreateBody(bullet_body);
   }
