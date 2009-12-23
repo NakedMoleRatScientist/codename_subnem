@@ -27,7 +27,7 @@ PlayerShipBox2D = Klass(CanvasNode, {
     this.addFrameListener(this.sync_particle_emitter_with_ship);
     this.addFrameListener(this.sync_weapon_discharger_with_ship);
     this.append(this.particle_emitter);
-    this.append(this.weapon_discharger);
+    this.viewport.append((this.weapon_discharger));
     this.append(this.image);
     this.thrust(5000);
   },
@@ -89,8 +89,8 @@ PlayerShipBox2D = Klass(CanvasNode, {
   {
     var vec = this.get_thrust_vec(.05);
     vec = b2Math.MulFV(-1, vec);
-    this.weapon_discharger.x = this.image.x;
-    this.weapon_discharger.y = this.image.y;
+    this.weapon_discharger.x = this.ship.m_position.x;
+    this.weapon_discharger.y = this.ship.m_position.y;
     this.weapon_discharger.direction = vec;
   },
   image_rotation: function(){
