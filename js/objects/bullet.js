@@ -2,6 +2,8 @@ Bullet = Klass(CanvasNode,
 {
   x: null,
   y: null,
+  _x: null,
+  _y: null,
   size: 3,
   direction: null,
   color: [000,170,000],
@@ -10,9 +12,11 @@ Bullet = Klass(CanvasNode,
   initialize: function(x_initial,y_initial, dir)
   {
     CanvasNode.initialize.call(this);
-    this.x = x_initial;
-    this.y = y_initial;
-    this.body = this.create_bullet_body(x,y);
+    this._x = x_initial;
+    this._y = y_initial;
+    this.x = 0;
+    this.y = 0;
+    this.body = this.create_bullet_body();
     this.body.isBullet = true;
     this.direction = dir;
     this.start_thrust();
@@ -33,8 +37,8 @@ Bullet = Klass(CanvasNode,
   },
   step: function(t, dt)
   {
-    this.x += this.body.m_position.x;
-    this.y += this.body.m_position.y;
+    this.x = this.body.m_position.x - this._x;
+    this.y = this.body.m_position.y - this._y;
   },
   add_bullet: function()
   {
@@ -50,7 +54,7 @@ Bullet = Klass(CanvasNode,
     
     var bullet_body = new b2BodyDef();
     bullet_body.AddShape(bullet_def);
-    bullet_body.position.Set(this.x,this.y);
+    bullet_body.position.Set(this._x,this._y);
      
     return world.CreateBody(bullet_body);
   }
