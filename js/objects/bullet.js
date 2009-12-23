@@ -12,6 +12,7 @@ Bullet = Klass(CanvasNode,
     CanvasNode.initialize.call(this);
     x = x_initial;
     y = y_initial;
+    body = this.create_bullet_body(x,y);
     direction = dir;
     this.add_bullet();
     this.addFrameListener(this.step)
@@ -26,7 +27,7 @@ Bullet = Klass(CanvasNode,
     bullet = new Circle(this.size, { fill: this.color});
     this.append(bullet);
   },
-  create_bullet_body: function();
+  create_bullet_body: function()
   {
     var bullet_def = new b2BoxDef();
     var world = physics_world.world;
