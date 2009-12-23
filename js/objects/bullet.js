@@ -17,6 +17,10 @@ Bullet = Klass(CanvasNode,
     this.add_bullet();
     this.addFrameListener(this.step)
   },
+  start_thrust: function(vec)
+  {
+    body.ApplyImpluse(vec,body.GetCenterPosition());
+  }
   step: function(t, dt)
   {
     this.x += direction.x * dt;
