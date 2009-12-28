@@ -37,8 +37,8 @@ Bullet = Klass(CanvasNode,
   },
   step: function(t, dt)
   {
-    this.x = this.body.m_position.x - this._x;
-    this.y = this.body.m_position.y - this._y;
+    this.x = this.body.m_position.x;
+    this.y = this.body.m_position.y;
   },
   add_bullet: function()
   {
